@@ -1,7 +1,14 @@
 cmake_minimum_required(VERSION "3.16")
 project("HungaNut")
 
-add_subdirectory("ThirdParty/SDL")
+if (WIN32)
+    set(${SDL2_LIBRARIES} "ThirdParty/SDL/lib/libSDL2.a")
+endif (WIN32)
+
+if (UNIX AND NOT APPLE)
+    find_package(SDL2 REQUIRED)
+    include_directories(${SDL2_INCLUDE_DIRS})
+endif (UNIX AND NOT APPLE)
 
 add_executable( "HungaNut"
     "HungaNut.h"
@@ -9,3 +16,5 @@ add_executable( "HungaNut"
     "src/main.h"
     "test/main.cpp"
 )
+
+target_link_libraries("HungaNut" ${SDL2_LIBRARIES})

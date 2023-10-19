@@ -1,9 +1,8 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_ 
 
-#define SDL_LIB "../ThirdParty/SDL/include/SDL.h"
-
-#include SDL_LIB
+#include <iostream>
+#include <SDL2/SDL.h>
 
 namespace Hunga {
     int Sub(int a, int b) {
@@ -19,7 +18,7 @@ namespace Hunga {
             SDL_version version;
             SDL_VERSION(&version);
 
-            std::cout << "SDL2 version: " << version.major << "." << version.minor << "." << version.patch << std::endl;
+            std::cout << "SDL2 version: " << (int32_t)version.major << "." << (int32_t)version.minor << "." << (int32_t)version.patch << std::endl;
         }
 
         return ret;
