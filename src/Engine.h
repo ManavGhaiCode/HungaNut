@@ -12,28 +12,37 @@
 #endif
 
 namespace Hunga {
-    int Sub(int a, int b) {
-        return a - b;
-    }
+    class Engine {
+        public:
+            static Engine& Instance() {
+                if (!m_instance) {
+                    m_instance = new Engine();
+                }
 
-    bool init() {
-        bool ret;
+                return *m_instance;
+            }
 
-        if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-            std::cerr << "Error in intializing SDL2: " << SDL_GetError() << std::endl;
-        } else {
-            SDL_version version;
-            SDL_VERSION(&version);
+            void init() {
+                if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+                    std::cerr << "Error in intializing SDL2: " << SDL_GetError() << std::endl;
+                } else {
+                    SDL_version version;
+                    SDL_VERSION(&version);
 
-            std::cout << "SDL2 version: " << (int32_t)version.major << "." << (int32_t)version.minor << "." << (int32_t)version.patch << std::endl;
-        }
+                    std::cout << "SDL2 version: " << (int32_t)version.major << "." << (int32_t)version.minor << "." << (int32_t)version.patch << std::endl;
+                }
+            }
 
-        return ret;
-    }
+            void ShutDown() {
+                SDL_Quit();
+            }
 
-    void ShutDown() {
-        SDL_Quit();
-    }
+        private:
+            Engine() {};
+            static Engine* m_instance;
+    };
 }
+
+Hunga::Engine* Hunga::Engine::m_instance = nullptr;
 
 #endif

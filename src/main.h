@@ -1,14 +1,21 @@
 #include <iostream>
 #include "./Engine.h"
 
+#include "./Defines.h"
+
 void StartGame() {
-    Hunga::init();
+    Hunga::Engine& hunga = Hunga::Engine::Instance();
+    hunga.init();
+    hunga.ShutDown();
+
+    #ifdef DEBUG
+        std::cout << "press enter to continue... ";
+        std::cin.ignore();
+    #endif
 }
 
 int main() {
-    std::cout << "Hello World" << std::endl;
     StartGame();
-    Hunga::ShutDown();
 
     return 0;
 }
