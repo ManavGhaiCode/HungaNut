@@ -1,8 +1,8 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 
-#include "./Window.h"
-#include "../Engine.h"
+#include <Window.h>
+#include <Engine.h>
 
 struct SDL_Window;
 

@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "./Engine.h"
-#include "./Defines.h"
+#include <Engine.h>
+#include <Defines.h>
 
 void StartGame() {
     Hunga::Engine& hunga = Hunga::Engine::Instance();
