@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION "3.16")
 project("HungaNut")
 
-add_subdirectory("ThridParty/SDL")
+add_subdirectory("ThirdParty/SDL")
 
 add_executable( "HungaNut"
     "HungaNut.h"
