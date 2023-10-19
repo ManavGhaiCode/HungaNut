@@ -1,3 +1,6 @@
+#ifndef _LOGMANAGER_H_
+#define _LOGMANAGER_H_
+
 namespace Hunga::Managers {
     class LogManager {
         public:
@@ -8,3 +11,5 @@ namespace Hunga::Managers {
             void ShutDown();
     };
 }
+
+#endif

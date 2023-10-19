@@ -1,3 +1,6 @@
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
 #include <iostream>
 
 #include <Engine.h>
@@ -18,3 +21,5 @@ int main() {
 
     return 0;
 }
+
+#endif
