@@ -14,6 +14,7 @@ add_executable( "HungaNut"
     "HungaNut.h"
     "src/Engine.h"
     "src/main.h"
+    "src/Defines.h"
     "test/main.cpp"
 )
 

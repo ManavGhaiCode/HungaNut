@@ -1,8 +1,15 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_ 
 
+#include "./Defines.h"
+
 #include <iostream>
-#include <SDL2/SDL.h>
+
+#ifdef NUT_PLATFORM_LINUX
+    #include <SDL2/SDL.h>
+#elif NUT_PLATFORM_WINDOWS
+    #include "../ThirdParty/SDL/include/SDL.h"
+#endif
 
 namespace Hunga {
     int Sub(int a, int b) {
