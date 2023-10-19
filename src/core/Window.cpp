@@ -20,10 +20,10 @@ namespace Hunga::core {
 
         if (!m_window) {
             std::cerr << "Error making window: " << SDL_GetError();
-            return 1;
+            return false;
         }
 
-        return 0;
+        return true;
     };
 
     void Window::ShutDown() {
