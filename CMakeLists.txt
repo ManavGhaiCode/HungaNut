@@ -18,9 +18,14 @@ add_executable( "HungaNut"
     "src/Defines.h"
     "src/core/Window.h"
     "src/core/Window.cpp"
+    "src/managers/LogManager.h"
+    "src/managers/LogManager.cpp"
     "test/main.cpp"
 )
 
-target_include_directories("HungaNut" PRIVATE "src")
+target_include_directories( "HungaNut" PRIVATE 
+    "src" 
+    "ThirdParty"
+)
 
 target_link_libraries("HungaNut" ${SDL2_LIBRARIES})

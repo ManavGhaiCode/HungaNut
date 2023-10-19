@@ -10,4 +10,6 @@
     #define NUT_PLATFORM_WINDOWS
 #endif
 
+#define HUNGANUT_DEFAULT_LOGGER_NAME "NutLogger"
+
 #endif
