@@ -39,20 +39,20 @@ namespace Hunga {
     bool Engine::init() {
         bool ret = true;
         m_LogManager.init();
+
+        NUT_TRACE("HungaNut v{}.{}.{}", 0, 0, 1);
         
         if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-            std::cerr << "Error in intializing SDL2: " << SDL_GetError() << std::endl;
+            NUT_ERROR("Error in intializing SDL2: {}", SDL_GetError());
             ret = false;
         }
 
         #ifdef DEBUG
             SDL_version version;
             SDL_VERSION(&version);
+
+            NUT_TRACE("SDL2 version: v{}.{}.{}", (int32_t)version.major, (int32_t)version.minor, (int32_t)version.patch);
         #endif
-
-        NUT_TRACE("HungaNut v{}.{}", 0, 1);
-        std::cout << "SDL2 version: " << (int32_t)version.major << "." << (int32_t)version.minor << "." << (int32_t)version.patch << std::endl;
-
 
         if (!m_window.Create()) {
             ret = false;
