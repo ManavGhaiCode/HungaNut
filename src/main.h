@@ -5,9 +5,7 @@
 
 void StartGame() {
     Hunga::Engine& hunga = Hunga::Engine::Instance();
-    if (hunga.init()) {} else {
-        hunga.ShutDown();
-    }
+    hunga.Run();
 
     #ifdef DEBUG
         std::cout << "press enter to continue... ";

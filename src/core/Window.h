@@ -1,35 +1,21 @@
-#include <iostream>
-#include <SDL2/SDL.h>
+#ifndef _WINDOW_H_
+#define _WINDOW_H_
 
 struct SDL_Window;
 
 namespace Hunga::core {
     class Window {
         public:
-            Window() : m_window(nullptr) {};
-            ~Window() {
-                if (m_window) {
-                    ShutDown();
-                }
-            };
+            Window();
+            ~Window();
 
-            bool Create() {
-                m_window = SDL_CreateWindow("Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
-
-                if (!m_window) {
-                    std::cerr << "Error making window: " << SDL_GetError();
-                    return 1;
-                }
-
-                return 0;
-            };
-
-            void ShutDown() {
-                SDL_DestroyWindow(m_window);
-                m_window = nullptr;
-            };
+            bool Create();
+            void ShutDown();
+            void PumpEvent();
 
         private:
             SDL_Window* m_window;
     };
 }
+
+#endif

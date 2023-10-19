@@ -13,10 +13,14 @@ endif (UNIX AND NOT APPLE)
 add_executable( "HungaNut"
     "HungaNut.h"
     "src/Engine.h"
+    "src/Engine.cpp"
     "src/main.h"
     "src/Defines.h"
-    "src/code/Window.h"
+    "src/core/Window.h"
+    "src/core/Window.cpp"
     "test/main.cpp"
 )
+
+target_include_directories("HungaNut" PRIVATE "src")
 
 target_link_libraries("HungaNut" ${SDL2_LIBRARIES})
