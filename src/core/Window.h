@@ -2,6 +2,7 @@
 #define _WINDOW_H_
 
 struct SDL_Window;
+using SDL_GLContext = void*;
 
 namespace Hunga::core {
     class Window {
@@ -15,6 +16,7 @@ namespace Hunga::core {
 
         private:
             SDL_Window* m_window;
+            SDL_GLContext m_GLContext;
     };
 }
 

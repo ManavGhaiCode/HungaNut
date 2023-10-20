@@ -13,6 +13,8 @@ endif (UNIX AND NOT APPLE)
 find_package(OpenGL REQUIRED)
 
 add_executable( "HungaNut"
+    # engine files
+
     "HungaNut.h"
     "src/Engine.h"
     "src/Engine.cpp"
@@ -22,8 +24,14 @@ add_executable( "HungaNut"
     "src/core/Window.cpp"
     "src/managers/LogManager.h"
     "src/managers/LogManager.cpp"
+    
+    # glad files
+
     "ThirdParty/glad/glad.h"
     "ThirdParty/glad/glad.c"
+
+    # test project files
+
     "test/main.cpp"
 )
 

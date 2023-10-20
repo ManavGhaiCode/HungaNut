@@ -65,6 +65,11 @@ namespace Hunga {
             m_running = true;
         }
 
+        if (!ret) {
+            NUT_ERROR("Error in initializing Engine shuting down");
+            ShutDown();
+        }
+
         return ret;
     }
 

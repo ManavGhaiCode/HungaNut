@@ -1,8 +1,10 @@
 #include <iostream>
 #include <SDL2/SDL.h>
+#include <glad/glad.h>
 
 #include <core/Window.h>
 #include <Engine.h>
+#include <log.h>
 
 struct SDL_Window;
 
@@ -16,12 +18,28 @@ namespace Hunga::core {
     };
 
     bool Window::Create() {
-        m_window = SDL_CreateWindow("Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+        m_window = SDL_CreateWindow( "Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 
+        SDL_WINDOW_OPENGL );
 
         if (!m_window) {
-            std::cerr << "Error making window: " << SDL_GetError();
+            NUT_ERROR("Error in make the game window: {}", SDL_GetError());
             return false;
         }
+
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+        SDL_SetWindowMinimumSize(m_window, 200, 200);
+        m_GLContext = SDL_GL_CreateContext(m_window);
+
+        if (m_GLContext == nullptr) {
+            NUT_ERROR("Error in making the current window context: {}", SDL_GetError());
+            return false;
+        }
+
+        gladLoadGLLoader(SDL_GL_GetProcAddress);
 
         return true;
     };
