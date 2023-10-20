@@ -12,6 +12,8 @@ endif (UNIX AND NOT APPLE)
 
 find_package(OpenGL REQUIRED)
 
+set (CMAKE_CXX_STANDARD 17)
+
 add_executable( "HungaNut"
     # engine files
 
@@ -22,12 +24,20 @@ add_executable( "HungaNut"
     "src/Defines.h"
     "src/core/Window.h"
     "src/core/Window.cpp"
+
+    # managers
     "src/managers/LogManager.h"
     "src/managers/LogManager.cpp"
+    "src/managers/RenderManager.h"
+    "src/managers/RenderManager.cpp"
 
     # graphics files
     "src/core/graphics/mesh.h"
-    "src/core/graphics/mesh.cpp"
+    "src/core/graphics/mesh.cpp"    
+    "src/core/graphics/shader.h"
+    "src/core/graphics/shader.cpp"    
+    "src/core/graphics/RenderPipe.h"
+    "src/core/graphics/RenderPipe.cpp"
     
     # glad files
 

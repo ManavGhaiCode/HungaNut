@@ -3,6 +3,7 @@
 
 #include <core/Window.h>
 #include <managers/LogManager.h>
+#include <managers/RenderManager.h>
 
 namespace Hunga {
     class Engine {
@@ -11,6 +12,9 @@ namespace Hunga {
 
             void Run(); // To start the game and run Update
             void Quit() { m_running = false; } // To stop the Game
+
+            // For submitting render calls
+            inline Managers::RenderManager& GetRenderManager() { return m_RenderManager; }
 
         private:
 
@@ -23,6 +27,7 @@ namespace Hunga {
 
             // managers
             Managers::LogManager m_LogManager;
+            Managers::RenderManager m_RenderManager;
 
             // other vars
             bool m_running = false;

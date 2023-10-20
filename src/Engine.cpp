@@ -12,6 +12,11 @@
 #include <log.h>
 #include <Engine.h>
 
+#include <cstdint>
+
+#include <core/graphics/mesh.h>
+#include <core/graphics/shader.h>
+
 namespace Hunga {
     // public
 
@@ -32,9 +37,46 @@ namespace Hunga {
 
         // main game loop def
         while (m_running) {
+            // test mesh
+            float vertices[] {
+                -0.5f, -0.5f, 0.f,
+                0.f, 0.5f, 0.f,
+                0.5f, -0.5f ,0.f
+            };
+
+            std::shared_ptr<Graphics::Mesh> mesh = std::make_shared<Graphics::Mesh>(&vertices[0], (uint32_t)3, (uint32_t)3);
+
+            // test Shader
+            const char* vertexShader = R"(
+				#version 410 core
+				layout (location = 0) in vec3 position;
+				out vec3 vpos;
+                
+				void main()
+				{
+					vpos = position + vec3(0.5, 0.5, 0);
+					gl_Position = vec4(position, 1.0);
+				}
+			)";
+
+            const char* fragmentShader = R"(
+                #version 410 core
+                out vec4 outColor;
+                
+                void main() {
+                    outColor = vec4(1.0);
+                }
+            )";
+
+            std::shared_ptr<Graphics::Shader> shader = std::make_shared<Graphics::Shader>(vertexShader, fragmentShader);
+
             m_window.PumpEvent();
-            
             m_window.StartRender();
+
+            auto rc = std::make_unique<Graphics::RenderMesh>(mesh, shader);
+            m_RenderManager.Submit(std::move(rc));
+
+            m_RenderManager.Flush();
             m_window.EndRender();
         }
 
@@ -63,6 +105,9 @@ namespace Hunga {
         #endif
 
         if (m_window.Create()) {
+            // start Mangers
+            m_RenderManager.init();
+
             ret = true;
             m_IsInit = true;
             m_running = true;
@@ -81,7 +126,8 @@ namespace Hunga {
         m_running = false;
         m_IsInit = false;
 
-        // Manager shutdown
+        // Manager shutdown - should be done in reverse order
+        m_RenderManager.ShutDown();
         m_LogManager.ShutDown();
 
         // SDL ShutDown

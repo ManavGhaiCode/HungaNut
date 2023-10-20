@@ -41,21 +41,6 @@ namespace Hunga::core {
 
         gladLoadGLLoader(SDL_GL_GetProcAddress);
 
-        // TODO: Move to a renderer.
-        glEnable(GL_DEPTH_TEST); // for allowing the use of depth
-        glDepthFunc(GL_LEQUAL); // set func for depth
-
-        glEnable(GL_BLEND); // for allowing the use of transparency
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // set func for transparency
-
-        glClearColor(
-            static_cast<float>(0x64) / static_cast<float>(0xFF),
-            static_cast<float>(0x95) / static_cast<float>(0xFF),
-            static_cast<float>(0xED) / static_cast<float>(0xFF),
-            1
-        ); // set color to cornflower blue.
-        // end.
-
         return true;
     };
 
@@ -80,7 +65,7 @@ namespace Hunga::core {
     }
 
     void Window::StartRender() {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        Engine::Instance().GetRenderManager().Clear();
     }
 
     void Window::EndRender() {

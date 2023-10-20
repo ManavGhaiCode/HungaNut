@@ -10,8 +10,9 @@ namespace Hunga::Graphics {
             ~Mesh();
 
             void Bind();
-
             void UnBind();
+
+            inline uint32_t GetVertexCount() { return m_vertexCount; }
 
         private:
             uint32_t m_vertexCount;
