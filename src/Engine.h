@@ -25,7 +25,7 @@ namespace Hunga {
             Managers::LogManager m_LogManager;
 
             // other vars
-            bool m_running = true;
+            bool m_running = false;
 
             Engine() {};
             static Engine* m_instance;
