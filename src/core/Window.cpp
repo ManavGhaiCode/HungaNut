@@ -19,7 +19,7 @@ namespace Hunga::core {
 
     bool Window::Create() {
         m_window = SDL_CreateWindow( "Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 
-        SDL_WINDOW_OPENGL );
+        SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 
         if (!m_window) {
             NUT_ERROR("Error in make the game window: {}", SDL_GetError());
@@ -40,6 +40,21 @@ namespace Hunga::core {
         }
 
         gladLoadGLLoader(SDL_GL_GetProcAddress);
+
+        // TODO: Move to a renderer.
+        glEnable(GL_DEPTH_TEST); // for allowing the use of depth
+        glDepthFunc(GL_LEQUAL); // set func for depth
+
+        glEnable(GL_BLEND); // for allowing the use of transparency
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // set func for transparency
+
+        glClearColor(
+            static_cast<float>(0x64) / static_cast<float>(0xFF),
+            static_cast<float>(0x95) / static_cast<float>(0xFF),
+            static_cast<float>(0xED) / static_cast<float>(0xFF),
+            1
+        ); // set color to cornflower blue.
+        // end.
 
         return true;
     };
@@ -62,5 +77,13 @@ namespace Hunga::core {
                     break;
             }
         }
+    }
+
+    void Window::StartRender() {
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    }
+
+    void Window::EndRender() {
+        SDL_GL_SwapWindow(m_window);
     }
 };

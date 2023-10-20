@@ -14,6 +14,9 @@ namespace Hunga::core {
             void ShutDown();
             void PumpEvent();
 
+            void StartRender();
+            void EndRender();
+
         private:
             SDL_Window* m_window;
             SDL_GLContext m_GLContext;

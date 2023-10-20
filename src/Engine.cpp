@@ -33,6 +33,9 @@ namespace Hunga {
         // main game loop def
         while (m_running) {
             m_window.PumpEvent();
+            
+            m_window.StartRender();
+            m_window.EndRender();
         }
 
         ShutDown();
