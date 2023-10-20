@@ -10,6 +10,8 @@ if (UNIX AND NOT APPLE)
     include_directories(${SDL2_INCLUDE_DIRS})
 endif (UNIX AND NOT APPLE)
 
+find_package(OpenGL REQUIRED)
+
 add_executable( "HungaNut"
     "HungaNut.h"
     "src/Engine.h"
@@ -20,12 +22,19 @@ add_executable( "HungaNut"
     "src/core/Window.cpp"
     "src/managers/LogManager.h"
     "src/managers/LogManager.cpp"
+    "ThirdParty/glad/glad.h"
+    "ThirdParty/glad/glad.c"
     "test/main.cpp"
 )
 
 target_include_directories( "HungaNut" PRIVATE 
     "src" 
     "ThirdParty"
+    ${OPENGL_INCLUDE_DIR}
 )
 
-target_link_libraries("HungaNut" ${SDL2_LIBRARIES})
+target_link_libraries( "HungaNut" 
+    ${SDL2_LIBRARIES}
+    ${OPENGL_LIBRARIES}
+    ${CMAKE_DL_LIBS}
+)

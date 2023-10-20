@@ -24,7 +24,6 @@ namespace Hunga {
     }
 
     void Engine::Run() {
-        auto x = init();
         // init the window
         if (!init()) {
             ShutDown();
