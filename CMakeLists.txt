@@ -24,6 +24,10 @@ add_executable( "HungaNut"
     "src/core/Window.cpp"
     "src/managers/LogManager.h"
     "src/managers/LogManager.cpp"
+
+    # graphics files
+    "src/core/graphics/mesh.h"
+    "src/core/graphics/mesh.cpp"
     
     # glad files
 
