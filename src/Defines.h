@@ -1,6 +1,8 @@
 #ifndef _DEFINES_H_
 #define _DEFINES_H_
 
+#include <stdlib.h>
+
 #define DEBUG
 // #define RELEASE
 
@@ -11,5 +13,6 @@
 #endif
 
 #define HUNGANUT_DEFAULT_LOGGER_NAME "NutLogger"
+#define NUT_BREAK exit(1);
 
 #endif

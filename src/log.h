@@ -12,6 +12,7 @@
     #define NUT_WARN(...)  if (spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME) != nullptr) { spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME)->warn(__VA_ARGS__); }
     #define NUT_ERROR(...) if (spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME) != nullptr) { spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME)->error(__VA_ARGS__); }
     #define NUT_FATAL(...) if (spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME) != nullptr) { spdlog::get(HUNGANUT_DEFAULT_LOGGER_NAME)->critical(__VA_ARGS__); }
+    #define NUT_ASSERT(x, msg) if ((x)) {} else { NUT_FATAL("ASSERT - {}\n\t{}\n\tin file: {}\n\ton line: {}", #x, msg, __FILE__, __LINE__); NUT_BREAK }
 #else
 // defines for RELEASE Build of the Game
     #define NUT_TRACE(...) (void)0

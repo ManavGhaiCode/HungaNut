@@ -13,6 +13,8 @@
 #include <Engine.h>
 
 namespace Hunga {
+    // public
+
     Engine& Engine::Instance() {
         if (!m_instance) {
             m_instance = new Engine();
@@ -22,6 +24,7 @@ namespace Hunga {
     }
 
     void Engine::Run() {
+        auto x = init();
         // init the window
         if (!init()) {
             ShutDown();
@@ -36,7 +39,11 @@ namespace Hunga {
         ShutDown();
     }
 
+    // private
+
     bool Engine::init() {
+        NUT_ASSERT(!m_IsInit, "Engine::init() called more than once... ")
+
         bool ret = false;
         m_LogManager.init();
 
@@ -55,6 +62,7 @@ namespace Hunga {
 
         if (m_window.Create()) {
             ret = true;
+            m_IsInit = true;
             m_running = true;
         }
 
@@ -64,6 +72,7 @@ namespace Hunga {
     void Engine::ShutDown() {
         // not allowing the game to runn any more
         m_running = false;
+        m_IsInit = false;
 
         // Manager shutdown
         m_LogManager.ShutDown();

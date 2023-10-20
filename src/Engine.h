@@ -15,7 +15,7 @@ namespace Hunga {
         private:
 
             // for internal setup
-            bool init();
+            [[nodiscard]] bool init();
             void ShutDown();
 
             // Window refence
@@ -26,6 +26,7 @@ namespace Hunga {
 
             // other vars
             bool m_running = false;
+            bool m_IsInit = false;
 
             Engine() {};
             static Engine* m_instance;
