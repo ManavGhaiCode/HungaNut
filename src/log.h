@@ -21,6 +21,7 @@
     #define NUT_WARN(...)  (void)0
     #define NUT_ERROR(...) (void)0
     #define NUT_FATAL(...) (void)0
+    #define NUT_ASSERT(x, msg) (void)0
 #endif
 
 #endif
