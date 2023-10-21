@@ -6,26 +6,27 @@
 namespace Hunga::Input {
     class Mouse {
         public:
-            static void init();
+            void init();
+            void Update();
 
-            static void Update();
-            inline static int GetX() { return m_xpos; };
+            inline int GetX() { return m_xpos; };
+            inline int GetY() { return m_ypos; };
 
-            static bool GetButton(int Button);
-            static bool GetButtonUp(int Button);
-            static bool GetButtonDown(int Button);
+            bool GetButton(int Button);
+            bool GetButtonUp(int Button);
+            bool GetButtonDown(int Button);
 
         private:
-            const static int m_ButtonCount = 5; // as SDL supports 5 mouse buttons.
+            static int const m_ButtonCount = 5; // as SDL supports 5 mouse buttons.
 
-            static int m_xpos;
-            static int m_ypos;
-            static int m_xLast;
-            static int m_yLast;
+            int m_xpos;
+            int m_ypos;
+            int m_xLast;
+            int m_yLast;
 
-            static std::array<bool, m_ButtonCount> m_Buttons;
-            static std::array<bool, m_ButtonCount> m_ButtonsUp;
-            static std::array<bool, m_ButtonCount> m_ButtonsDown;
+            std::array<bool, m_ButtonCount> m_Buttons;
+            std::array<bool, m_ButtonCount> m_ButtonsUp;
+            std::array<bool, m_ButtonCount> m_ButtonsDown;
     };
 }
 

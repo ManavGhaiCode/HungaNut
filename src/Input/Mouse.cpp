@@ -5,16 +5,12 @@
 #include <SDL2/SDL_mouse.h>
 
 namespace Hunga::Input {
-    int Mouse::m_xpos = 0;
-    int Mouse::m_ypos = 0;
-    int Mouse::m_xLast = 0;
-    int Mouse::m_yLast = 0;
-
-    std::array<bool, Mouse::m_ButtonCount> Mouse::m_Buttons;
-    std::array<bool, Mouse::m_ButtonCount> Mouse::m_ButtonsDown;
-    std::array<bool, Mouse::m_ButtonCount> Mouse::m_ButtonsUp;
-
     void Mouse::init() {
+        m_xpos = 0;
+        m_ypos = 0;
+        m_xLast = 0;
+        m_yLast = 0;
+
         std::fill(m_Buttons.begin(), m_Buttons.end(), false);
     }
 
