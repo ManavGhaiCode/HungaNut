@@ -3,6 +3,7 @@
 
 #include <core/Window.h>
 #include <managers/LogManager.h>
+#include <managers/InputManager.h>
 #include <managers/RenderManager.h>
 
 namespace Hunga {
@@ -14,6 +15,7 @@ namespace Hunga {
             void Quit() { m_running = false; } // To stop the Game
 
             // For submitting render calls
+            inline Managers::InputManager& GetInputManager() { return m_InputManager; }
             inline Managers::RenderManager& GetRenderManager() { return m_RenderManager; }
 
         private:
@@ -27,6 +29,7 @@ namespace Hunga {
 
             // managers
             Managers::LogManager m_LogManager;
+            Managers::InputManager m_InputManager;
             Managers::RenderManager m_RenderManager;
 
             // other vars

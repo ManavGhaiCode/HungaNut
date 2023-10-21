@@ -62,6 +62,8 @@ namespace Hunga::core {
                 default:
                     break;
             }
+
+            Engine::Instance().GetInputManager().Update();
         }
     }
 

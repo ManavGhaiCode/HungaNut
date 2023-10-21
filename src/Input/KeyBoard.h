@@ -4,6 +4,8 @@
 #include <array>
 
 namespace Hunga::Input {
+    const int m_KeyCount = 286; 
+
     class KeyBoard {
         public:
             void init();
@@ -14,8 +16,6 @@ namespace Hunga::Input {
             bool GetKeyDown(int Key);
 
         private:
-            static int const m_KeyCount = 286; // as of SDL_NUM_SCANCODES minus the unspcified Keys.
-
             std::array<bool, m_KeyCount> m_Keys;
             std::array<bool, m_KeyCount> m_KeysUp;
             std::array<bool, m_KeyCount> m_KeysDown;

@@ -5,7 +5,7 @@
     * NOTE: Adapted form SDL2
 */
 
-enum KeysMouse {
+enum MouseKeys {
     MouseLeft,
     MouseMiddle,
     MouseRight,
@@ -13,7 +13,7 @@ enum KeysMouse {
     MouseX2
 };
 
-enum KeysMouse {
+enum Keys {
     A = 4,
     B = 5,
     C = 6,

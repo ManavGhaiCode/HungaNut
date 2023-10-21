@@ -38,15 +38,13 @@ namespace Hunga {
         // main game loop def
         while (m_running) {
             // test mesh
-float vertices[]
-            {
+            float vertices[] {
                  0.5f,  0.5f, 0.f,
                  0.5f, -0.5f, 0.f,
                 -0.5f, -0.5f, 0.f,
                 -0.5f,  0.5f, 0.f
             };
-            uint32_t elements[]
-            {
+            uint32_t elements[] {
                 0, 3, 1,
                 1, 3, 2
             };
@@ -86,6 +84,12 @@ float vertices[]
             auto rc = std::make_unique<Graphics::RenderMesh>(mesh, shader);
             m_RenderManager.Submit(std::move(rc));
 
+            float keySpeed = 0.001f;
+
+            if (m_InputManager.GetKey(Keys::X)) {
+                std::cout << "Pressed Key X" << std::endl;
+            }
+
             m_RenderManager.Flush();
             m_window.EndRender();
         }
@@ -117,6 +121,7 @@ float vertices[]
         if (m_window.Create()) {
             // start Mangers
             m_RenderManager.init();
+            m_InputManager.init();
 
             ret = true;
             m_IsInit = true;

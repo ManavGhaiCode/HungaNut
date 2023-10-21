@@ -30,6 +30,15 @@ add_executable( "HungaNut"
     "src/managers/LogManager.cpp"
     "src/managers/RenderManager.h"
     "src/managers/RenderManager.cpp"
+    "src/managers/InputManager.h"
+    "src/managers/InputManager.cpp"
+
+    # Input stuff
+    "src/Input/InputKeys.h"
+    "src/Input/Mouse.h"
+    "src/Input/Mouse.cpp"
+    "src/Input/KeyBoard.h"
+    "src/Input/KeyBoard.cpp"
 
     # graphics files
     "src/core/graphics/mesh.h"
