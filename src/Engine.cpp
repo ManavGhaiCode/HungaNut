@@ -38,37 +38,47 @@ namespace Hunga {
         // main game loop def
         while (m_running) {
             // test mesh
-            float vertices[] {
+float vertices[]
+            {
+                 0.5f,  0.5f, 0.f,
+                 0.5f, -0.5f, 0.f,
                 -0.5f, -0.5f, 0.f,
-                0.f, 0.5f, 0.f,
-                0.5f, -0.5f ,0.f
+                -0.5f,  0.5f, 0.f
             };
+            uint32_t elements[]
+            {
+                0, 3, 1,
+                1, 3, 2
+            };
+            std::shared_ptr<Graphics::Mesh> mesh = std::make_shared<Graphics::Mesh>(&vertices[0], 4, 3, &elements[0], 6);
 
-            std::shared_ptr<Graphics::Mesh> mesh = std::make_shared<Graphics::Mesh>(&vertices[0], (uint32_t)3, (uint32_t)3);
-
-            // test Shader
+            // Test Shader
             const char* vertexShader = R"(
-				#version 410 core
-				layout (location = 0) in vec3 position;
-				out vec3 vpos;
-                
-				void main()
-				{
-					vpos = position + vec3(0.5, 0.5, 0);
-					gl_Position = vec4(position, 1.0);
-				}
-			)";
+                #version 410 core
+                layout (location = 0) in vec3 position;
+                out vec3 vpos;
+                void main()
+                {
+                    vpos = position + vec3(0.5, 0.5, 0);
+                    gl_Position = vec4(position, 1.0);
+                }
+            )";
 
             const char* fragmentShader = R"(
                 #version 410 core
                 out vec4 outColor;
-                
-                void main() {
-                    outColor = vec4(1.0);
+                in vec3 vpos;
+                uniform vec3 color = vec3(0.0);
+                void main()
+                {
+                    outColor = vec4(vpos, 1.0);
                 }
             )";
 
             std::shared_ptr<Graphics::Shader> shader = std::make_shared<Graphics::Shader>(vertexShader, fragmentShader);
+            shader->SetUniformFloat3("color", 1, 0, 0);
+
+            m_RenderManager.SetWireFrameMode(true);
 
             m_window.PumpEvent();
             m_window.StartRender();

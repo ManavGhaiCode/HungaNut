@@ -16,6 +16,7 @@ namespace Hunga::Managers {
 
             void Submit(std::unique_ptr<Graphics::RenderCommand> renderCommand);
             void SetClearColor(float r, float g, float b, float a);
+            void SetWireFrameMode(bool mode); // for debuging and fun.
 
             // Ececution will happen in the order of submition to the API.
             void Flush();
@@ -23,6 +24,6 @@ namespace Hunga::Managers {
         private:
 
             // unique_ptr is uned to allow for useage polymorphism AKA OPP.
-            std::queue<std::unique_ptr<Graphics::RenderCommand>> m_RenderQueue; 
+            std::queue<std::unique_ptr<Graphics::RenderCommand>> m_RenderQueue;
     };
 }

@@ -21,8 +21,26 @@ namespace Hunga::Graphics {
         glBindVertexArray(0);
     }
 
+    Mesh::Mesh(float* vertexArray, uint32_t vertexCount, uint32_t dimensions, uint32_t* elementArray, uint32_t elementCount)
+        : Mesh(vertexArray, vertexCount, dimensions)
+    {
+        m_elementCount = elementCount;
+        glBindVertexArray(m_VAO);
+
+        glGenBuffers(1, &m_EBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, elementCount * sizeof(uint32_t), elementArray, GL_STATIC_DRAW);
+
+        glBindVertexArray(0);
+    }
+
     Mesh::~Mesh() {
-        glDeleteBuffers(1, &m_VAO);
+        glDeleteBuffers(1, &m_PostionVBO);
+
+        if (m_EBO != 0) {
+            glDeleteBuffers(1, &m_EBO);
+        }
+
         glDeleteVertexArrays(1, &m_VAO);
     }
 

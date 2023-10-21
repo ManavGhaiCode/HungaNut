@@ -46,6 +46,7 @@ namespace Hunga::core {
 
     void Window::ShutDown() {
         SDL_DestroyWindow(m_window);
+        SDL_GL_DeleteContext(m_GLContext);
         m_window = nullptr;
     };
 

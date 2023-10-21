@@ -58,4 +58,12 @@ namespace Hunga::Managers {
         NUT_ASSERT(m_RenderQueue.size() == 0, "Render queue not flushed");
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
+
+    void RenderManager::SetWireFrameMode(bool mode) {
+        if (mode) {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        } else {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        }
+    }
 }
