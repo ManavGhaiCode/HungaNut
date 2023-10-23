@@ -2,17 +2,24 @@
 #include <Engine.h>
 
 namespace Hunga {
-    void Window::Init() {
-        m_window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    bool Window::Init() {
+        bool ret = false;
 
-        if (!m_window) {
-            Engine::Instance().ShutDown();
+        m_window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+        glfwMakeContextCurrent(m_window);
+
+        if (m_window) {
+            ret = true;
         }
 
-        glfwMakeContextCurrent(m_window);
+        return ret;
     }
 
     void Window::ShutDown() {
-        delete m_window;
+        m_window = nullptr;
+    }
+
+    void Window::SwapBuffers() {
+        glfwSwapBuffers(m_window);
     }
 }

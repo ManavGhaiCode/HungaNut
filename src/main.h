@@ -11,8 +11,6 @@ int main() {
     std::cout << "Type ENTER to exit: ";
     std::cin.ignore();
 
-    hunga.ShutDown();
-
     return 0;
 }
 

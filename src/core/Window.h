@@ -8,8 +8,10 @@ namespace Hunga {
         public:
             Window() {};
 
-            void Init();
+            bool Init();
             void ShutDown();
+
+            void SwapBuffers();
 
         private:
             GLFWwindow* m_window;

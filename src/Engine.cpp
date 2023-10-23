@@ -13,18 +13,39 @@ namespace Hunga {
     }
 
     void Engine::Run() {
-        Init();
+        if (Init()) {
+            return;
+        }
+
+        while (m_ruinning) {
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            m_window.SwapBuffers();
+            glfwPollEvents();
+        }
+
+        ShutDown();
     }
 
-    void Engine::Init() {
+    bool Engine::Init() {
+        bool ret = false;        
+
         if (!glfwInit()) {
             std::cout << "Unable to init glfw" << std::endl;
         }
 
         std::cout << "init glfw" << std::endl;
+
+        if (m_window.Init()) {
+            ret = true;
+            m_ruinning = true;
+        }
+
+        return ret;
     }
 
     void Engine::ShutDown() {
+        m_window.ShutDown();
         glfwTerminate();
     }
 

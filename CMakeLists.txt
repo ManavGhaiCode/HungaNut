@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable( "HungaNut"
     "src/main.h"
     "src/HungaNut.h"
+    "src/core/Window.h"
+    "src/core/Window.cpp"
     "src/Engine.h"
     "src/Engine.cpp"
     "test/main.cpp"
