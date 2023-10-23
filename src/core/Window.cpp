@@ -5,7 +5,7 @@ namespace Hunga {
     bool Window::Init() {
         bool ret = false;
 
-        m_window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+        m_window = glfwCreateWindow(640, 480, "Window!", NULL, NULL);
         glfwMakeContextCurrent(m_window);
 
         if (m_window) {
