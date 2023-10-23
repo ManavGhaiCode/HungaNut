@@ -12,10 +12,15 @@ add_executable( "HungaNut"
     "src/Engine.h"
     "src/Engine.cpp"
     "test/main.cpp"
+
+    # My libs
+    "Libs/NutLogger/color.h"
+    "Libs/NutLogger/NutLogger.h"
 )
 
 target_include_directories( "HungaNut" PRIVATE
     "src"
+    "Libs"
 )
 
 target_link_libraries("HungaNut" OpenGL::GL glfw)
