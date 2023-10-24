@@ -1,6 +1,8 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_
 
+#include <core/Window.h>
+
 namespace Hunga {
     class Engine {
         public:
@@ -11,8 +13,13 @@ namespace Hunga {
             void ShutDown();
 
         private:
-            static Engine* m_Instance;
             // void GetInfo();
+
+            // Window
+            Window m_window;
+
+            // other vars
+            static Engine* m_Instance;
     };
 }
 

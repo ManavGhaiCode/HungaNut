@@ -7,6 +7,8 @@ find_package(SDL2 REQUIRED)
 add_executable( "HungaNut"
     "src/Engine.h"
     "src/Engine.cpp"
+    "src/core/Window.h"
+    "src/core/Window.cpp"
     "src/main.h"
     "src/HungaNut.h"
     "test/main.cpp"

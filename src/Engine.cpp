@@ -22,7 +22,11 @@ namespace Hunga {
             ShutDown();
         }
 
-        std::cout << "SDL initialized" << std::endl;
+        if (m_window.Init()) {
+            ret = true;
+        } else {
+            std::cout << "Unable to inti Engine: " << SDL_GetError() << std::endl;
+        }
 
         return ret;
     }
