@@ -1,6 +1,7 @@
 #include <iostream>
-
 #include <GLFW/glfw3.h>
+
+#include <log.h>
 #include <Engine.h>
 
 namespace Hunga {   
@@ -37,14 +38,16 @@ namespace Hunga {
         bool ret = false;        
 
         if (!glfwInit()) {
-            std::cout << "Unable to init glfw" << std::endl;
+            NUT_ERROR("Unable to Init GLFW");
         }
 
-        std::cout << "init glfw" << std::endl;
+        NUT_TRACE("Init GLFW");
 
         if (m_window.Init()) {
             ret = true;
             m_ruinning = true;
+        } else {
+            NUT_ERROR("Unable to Init Engine");
         }
 
         return ret;
@@ -53,6 +56,8 @@ namespace Hunga {
     void Engine::ShutDown() {
         m_window.ShutDown();
         glfwTerminate();
+
+        NUT_TRACE("Shutdown Engine");
     }
 
     Engine* Engine::m_Instance = nullptr;

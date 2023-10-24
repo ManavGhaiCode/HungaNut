@@ -1,5 +1,6 @@
 #include <core/Window.h>
 #include <Engine.h>
+#include <log.h>
 
 namespace Hunga {
     bool Window::Init() {
@@ -10,6 +11,8 @@ namespace Hunga {
 
         if (m_window) {
             ret = true;
+        } else {
+            NUT_ERROR("Unable to init Window");
         }
 
         return ret;
