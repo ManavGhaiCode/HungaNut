@@ -25,7 +25,7 @@ namespace Hunga {
         if (m_window.Init()) {
             ret = true;
         } else {
-            std::cout << "Unable to inti Engine: " << SDL_GetError() << std::endl;
+            std::cout << "Unable to init Engine: " << SDL_GetError() << std::endl;
         }
 
         return ret;
