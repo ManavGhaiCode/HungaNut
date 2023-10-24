@@ -4,7 +4,7 @@
 #define DEBUG
 // #define RELEASE
 
-#ifndef __linux__
+#ifdef __linux__
     #define NUT_PLATFORM_LINUX
 #elif WIN32 || WIN64
     #define NUT_PLATFORM_WINDOWS
