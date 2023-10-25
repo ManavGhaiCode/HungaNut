@@ -8,7 +8,7 @@ int main( void ) {
     std::cout << "Hunga Engine...\n" << std::endl;
 
     Hunga::Engine& hunga = Hunga::Engine::Instance();
-    hunga.Init();
+    hunga.Run();
 
     std::cout << "Please hit ENTER to continue: ";
     std::cin.ignore();

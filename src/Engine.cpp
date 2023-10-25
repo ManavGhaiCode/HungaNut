@@ -4,6 +4,8 @@
 #include <iostream>
 
 namespace Hunga {
+    // public
+
     Engine& Engine::Instance() {
         if (m_Instance == nullptr) {
             m_Instance = new Engine();
@@ -11,6 +13,18 @@ namespace Hunga {
 
         return *m_Instance;
     }
+
+    void Engine::Run() {
+        if (!Init()) {
+            return;
+        }
+
+        while (m_running) {
+            m_window.PollEvents();
+        }
+    }
+
+    // priavte
 
     bool Engine::Init() {
         bool ret = true;

@@ -7,7 +7,9 @@ namespace Hunga {
     class Window {
         public:
             bool Init();
-            void ShutDown();
+            void ShutDown(); 
+
+            void PollEvents();
 
         private:
             SDL_Window* m_window;

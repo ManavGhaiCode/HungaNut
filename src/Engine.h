@@ -8,18 +8,22 @@ namespace Hunga {
         public:
             // for singletin
             static Engine& Instance();
-
-            bool Init();
-            void ShutDown();
+            void Run();
 
         private:
+            // function
             // void GetInfo();
+            bool Init();
+            void ShutDown();
 
             // Window
             Window m_window;
 
             // other vars
             static Engine* m_Instance;
+            bool m_running = false;
+
+            Engine() {};
     };
 }
 

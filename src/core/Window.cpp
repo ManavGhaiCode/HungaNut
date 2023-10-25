@@ -1,4 +1,6 @@
 #include <core/Window.h>
+#include <Engine.h>
+
 #include <SDL2/SDL.h>
 
 namespace Hunga {
@@ -19,5 +21,13 @@ namespace Hunga {
     void Window::ShutDown() {
         SDL_DestroyWindow(m_window);
         m_window = nullptr;
+    }
+
+    void Window::PollEvents() {
+        SDL_Event event;
+
+        while (SDL_PollEvent(&event)) {
+
+        }
     }
 }
