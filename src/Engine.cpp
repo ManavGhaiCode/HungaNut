@@ -1,6 +1,7 @@
 #include <log.h>
 #include <Engine.h>
 #include <SDL2/SDL.h>
+#include <core/Renderer.h>
 
 #include <iostream>
 
@@ -22,6 +23,7 @@ namespace Hunga {
 
         while (m_running) {
             m_window.PollEvents();
+            m_renderer.Update();
         }
     }
 
@@ -40,8 +42,12 @@ namespace Hunga {
         if (m_window.Init()) {
             ret = true;
             m_running = true;
+
+            // Init Renderer
+            m_renderer.Init();
+
         } else {
-            std::cout << "Unable to init Engine: " << SDL_GetError() << std::endl;
+            NUT_ERROR("Unable to Init Engine");
         }
 
         return ret;
