@@ -7,7 +7,7 @@
 
 namespace Hunga {
     void Renderer::Init() {
-        m_renderer = SDL_CreateRenderer(&Engine::Instance().SDL_GetWindow(), -1, 0);
+        m_renderer = SDL_CreateRenderer(&Engine::Instance().SDL_GetWindow(), -1, SDL_RENDERER_ACCELERATED);
 
         if (m_renderer == nullptr) {
             NUT_ERROR("Unable to start SDL2 renderer", SDL_GetError())
