@@ -12,6 +12,7 @@ namespace Hunga {
             // for singletin
             static Engine& Instance();
             void Run();
+            void Quit();
 
             inline SDL_Window& SDL_GetWindow() { return m_window.GetWindow(); };
 
