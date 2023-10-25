@@ -9,12 +9,15 @@ add_executable( "HungaNut"
     "src/Engine.cpp"
     "src/core/Window.h"
     "src/core/Window.cpp"
+    "src/log.h"
     "src/main.h"
     "src/HungaNut.h"
     "test/main.cpp"
 
     # My libs
-    "Libs/NutLogger"
+    "Libs/NutLogger/NutLogger.h"
+    "Libs/NutLogger/color.h"
+    "Libs/NutLogger/format.h"
 )
 
 target_include_directories( "HungaNut" PRIVATE
