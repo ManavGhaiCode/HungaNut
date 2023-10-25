@@ -27,6 +27,10 @@ namespace Hunga {
         }
     }
 
+    void Engine::Quit() {
+        m_running = false;
+    }
+
     // priavte
 
     bool Engine::Init() {
