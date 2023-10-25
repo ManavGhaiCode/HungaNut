@@ -1,3 +1,4 @@
+#include <log.h>
 #include <Engine.h>
 #include <SDL2/SDL.h>
 
@@ -29,10 +30,10 @@ namespace Hunga {
     bool Engine::Init() {
         bool ret = true;
 
-        std::cout << "Initializing SDL..." << std::endl;
+        NUT_TRACE("Initializing SDL...")
 
         if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
-            std::cout << "Could not initialize SDL: " << SDL_GetError() << std::endl;
+            NUT_ERROR("Could not initialize SDL: ", SDL_GetError());
             ShutDown();
         }
 

@@ -4,8 +4,10 @@
 #include <Engine.h>
 #include <iostream>
 
+#include <log.h>
+
 int main( void ) {
-    std::cout << "Hunga Engine...\n" << std::endl;
+    NUT_TRACE("Hunga Engine...\n")
 
     Hunga::Engine& hunga = Hunga::Engine::Instance();
     hunga.Run();

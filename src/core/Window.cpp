@@ -1,5 +1,6 @@
 #include <core/Window.h>
 #include <Engine.h>
+#include <log.h>
 
 #include <SDL2/SDL.h>
 
@@ -12,6 +13,7 @@ namespace Hunga {
         );
 
         if (m_window == nullptr) {
+            NUT_ERROR("Could not init Window: ", SDL_GetError())
             return false;
         }
 
