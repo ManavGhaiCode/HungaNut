@@ -18,7 +18,7 @@ namespace Hunga {
 
         private:
             // function
-            // void GetInfo();
+            void GetInfo();
             bool Init();
             void ShutDown();
 

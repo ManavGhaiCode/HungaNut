@@ -1,5 +1,6 @@
 #include <log.h>
 #include <Engine.h>
+#include <Defines.h>
 #include <SDL2/SDL.h>
 #include <core/Renderer.h>
 
@@ -54,7 +55,21 @@ namespace Hunga {
             NUT_ERROR("Unable to Init Engine");
         }
 
+        GetInfo();
+
         return ret;
+    }
+
+    void Engine::GetInfo() {
+        #ifdef NUT_PLATFORM_LINUX
+            NUT_INFO("Platform: Linux")
+        #elif
+            NUT_INFO("Platform: Windows")
+        #endif
+
+        #ifdef DEBUG
+            NUT_INFO("Mode: Debug")
+        #endif
     }
 
     void Engine::ShutDown() {
