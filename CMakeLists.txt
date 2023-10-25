@@ -12,10 +12,14 @@ add_executable( "HungaNut"
     "src/main.h"
     "src/HungaNut.h"
     "test/main.cpp"
+
+    # My libs
+    "Libs/NutLogger"
 )
 
 target_include_directories( "HungaNut" PRIVATE
     "src"
+    "Libs"
     ${SDL2_INCLUDE_DIRS}
 )
 

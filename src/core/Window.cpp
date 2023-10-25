@@ -9,7 +9,7 @@ namespace Hunga {
             800, 600, 0
         );
 
-        if (m_window != nullptr) {
+        if (m_window == nullptr) {
             return false;
         }
 
