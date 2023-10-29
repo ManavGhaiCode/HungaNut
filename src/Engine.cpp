@@ -2,6 +2,7 @@
 #include <Engine.h>
 #include <Defines.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <core/Renderer.h>
 
 #include <iostream>
@@ -39,7 +40,10 @@ namespace Hunga {
 
         NUT_TRACE("Initializing SDL...")
 
-        if (SDL_Init(SDL_INIT_EVERYTHING) == -1) {
+        bool InitSDL = SDL_Init(SDL_INIT_EVERYTHING);
+        bool InitIMG = IMG_Init(IMG_INIT_PNG);
+
+        if (InitSDL != 0 && InitIMG != 0 ) {
             NUT_ERROR("Could not initialize SDL: ", SDL_GetError());
             ShutDown();
         }

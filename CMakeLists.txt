@@ -3,6 +3,7 @@ project("HungaNut")
 
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
 
 add_executable( "HungaNut"
     "src/Engine.h"
@@ -26,9 +27,11 @@ target_include_directories( "HungaNut" PRIVATE
     "src"
     "Libs"
     ${SDL2_INCLUDE_DIRS}
+    ${SDL2_IMAGE_INCLUDE_DIRS}
 )
 
 target_link_libraries( "HungaNut"
     OpenGL::GL
     ${SDL2_LIBRARIES}
+    ${SDL2_IMAGE_LIBRARIES}
 )
