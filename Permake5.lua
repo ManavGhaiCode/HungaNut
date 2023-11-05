@@ -26,3 +26,15 @@ project "HungaNut"
     
     -- filter "configs:Release"
     --     oprimize "On"
+
+project "Test"
+    kind "ConsoleApp"
+
+    files {
+        "test/**.h"
+        "test/**.cpp"
+    }
+
+    include {
+        "ThirdParty/SFML/include"
+    }
