@@ -29,6 +29,7 @@ project "HungaNut"
 
 project "Test"
     kind "ConsoleApp"
+    language "C++"
 
     files {
         "test/**.h"
