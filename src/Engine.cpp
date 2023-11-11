@@ -35,7 +35,9 @@ namespace Hunga {
 
         if (SDL_Init(SDL_INIT_EVERYTHING)) {
             std::cout << "Couldn't create window: " << SDL_GetError() << std::endl;
-        } else {
+        }
+
+        if (m_window.Init()) {
             ret = true;
             m_running = true;
         }
@@ -44,6 +46,13 @@ namespace Hunga {
 
         return ret;
     };
+
+    void Engine::ShutDown() {
+        m_window.ShutDown();
+
+        SDL_Quit();
+        delete m_Instance;
+    }
 
     Engine* Engine::m_Instance = nullptr;
 };

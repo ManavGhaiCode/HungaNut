@@ -5,8 +5,10 @@ find_package(Threads REQUIRED)
 set(LIBSDL_DIR ${CMAKE_SOURCE_DIR}/ThirdParty/SDL2/lib)
 
 add_library("HungaNut" STATIC
-    "src/Engine.cpp"
     "src/Engine.h"
+    "src/Engine.cpp"
+    "src/Window.h"
+    "src/Window.cpp"
 
     "src/main.h"
     "src/HungaNut.h"

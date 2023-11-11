@@ -1,6 +1,8 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_
 
+#include "Window.h"
+
 namespace Hunga {
     class Engine {
         public:
@@ -11,11 +13,11 @@ namespace Hunga {
 
         private:
             bool Init();
-            void ShutDown() { m_Instance = nullptr; };
+            void ShutDown();
 
             // vars
             bool m_running = false;
-
+            Window m_window;
 
             // singletin stuff
             static Engine* m_Instance;
