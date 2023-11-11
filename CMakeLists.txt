@@ -9,7 +9,11 @@ add_library("HungaNut" STATIC
     "src/Engine.cpp"
     "src/Window.h"
     "src/Window.cpp"
-
+    
+    "src/Logging/color.h"
+    "src/Logging/format.h"
+    "src/Logging/NutLogger.h"
+    "src/log.h"
     "src/main.h"
     "src/HungaNut.h"
 )
