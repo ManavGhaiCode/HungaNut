@@ -42,11 +42,11 @@ namespace Hunga {
     bool Engine::Init() {
         bool ret = false;
 
-        if (SDL_Init(SDL_INIT_EVERYTHING)) {
+        if (!SDL_Init(SDL_INIT_EVERYTHING)) {
             NUT_ERROR("Couldn't Init SDL: ", SDL_GetError());
         }
 
-        if (IMG_Init(IMG_INIT_PNG)) {
+        if (!IMG_Init(IMG_INIT_PNG)) {
             NUT_ERROR("Couldn't Init SDL_image: ", IMG_GetError());
             return ret;
         }
