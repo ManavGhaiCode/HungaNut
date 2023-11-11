@@ -24,7 +24,7 @@ namespace Hunga {
         }
 
         while (m_running) {
-            
+            m_window.PollEvents();
         }
         
         ShutDown();

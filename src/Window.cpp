@@ -1,3 +1,4 @@
+#include "Engine.h"
 #include "Window.h"
 
 #include <iostream>
@@ -17,5 +18,15 @@ namespace Hunga {
 
     void Window::ShutDown() {
         SDL_DestroyWindow(m_window);
+    }
+
+    void Window::PollEvents() {
+        SDL_Event event;
+
+        if (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                Engine::Instance().Quit();
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Hunga {
             static Engine& Instance();
 
             void Run();
-            void Quit();
+            inline void Quit() { m_running = false; };
 
         private:
             bool Init();
