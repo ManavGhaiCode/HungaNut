@@ -3,6 +3,9 @@
 
 #include <streambuf>
 
+#define DEBUG
+#define RELEASE
+
 #ifdef __linux__
     #define NUT_PLATFORM_LINUX
 #elif WIN64 || WIN32
