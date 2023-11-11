@@ -1,7 +1,7 @@
 #ifndef _DEFINES_H_
 #define _DEFINES_H_
 
-#include <streambuf>
+#include <stdlib.h>
 
 #define DEBUG
 #define RELEASE
@@ -12,6 +12,6 @@
     #define NUT_PLATFORM_LINUX
 #endif
 
-#define KEYS_TO_I(X) X = X 
+#define NUT_BREAK std::exit(1);
 
 #endif

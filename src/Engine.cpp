@@ -8,6 +8,7 @@
 #include <string>
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 namespace Hunga {
     Engine& Engine::Instance() {
@@ -42,7 +43,12 @@ namespace Hunga {
         bool ret = false;
 
         if (SDL_Init(SDL_INIT_EVERYTHING)) {
-            NUT_ERROR("Couldn't create window: ", SDL_GetError());
+            NUT_ERROR("Couldn't Init SDL: ", SDL_GetError());
+        }
+
+        if (IMG_Init(IMG_INIT_PNG)) {
+            NUT_ERROR("Couldn't Init SDL_image: ", IMG_GetError());
+            return ret;
         }
 
         if (m_window.Init()) {
