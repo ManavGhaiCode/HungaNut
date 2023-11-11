@@ -1,3 +1,4 @@
+#include "log.h"
 #include "Engine.h"
 #include "Defines.h"
 
@@ -17,7 +18,7 @@ namespace Hunga {
 
     void Engine::Run() {
         if (!Init()) {
-            std::cout << "Unable it Init Engine... Shuting Down" << std::endl;
+            NUT_ERROR("Unable it Init Engine... Shuting Down");
             ShutDown();
 
             return;
@@ -34,7 +35,7 @@ namespace Hunga {
         bool ret = false;
 
         if (SDL_Init(SDL_INIT_EVERYTHING)) {
-            std::cout << "Couldn't create window: " << SDL_GetError() << std::endl;
+            NUT_ERROR("Couldn't create window: ", SDL_GetError());
         }
 
         if (m_window.Init()) {
@@ -42,7 +43,7 @@ namespace Hunga {
             m_running = true;
         }
 
-        std::cout << "Init Engine..." << std::endl;
+        NUT_TRACE("Init Engine...");
 
         return ret;
     };

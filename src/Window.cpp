@@ -1,3 +1,4 @@
+#include "log.h"
 #include "Engine.h"
 #include "Window.h"
 
@@ -9,7 +10,7 @@ namespace Hunga {
         m_window = SDL_CreateWindow("Window!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
 
         if (m_window == nullptr) {
-            std::cout << "Unable to Init window" << std::endl;
+            NUT_ERROR("Unable to Init window", SDL_GetError());
             return false;
         }
 
