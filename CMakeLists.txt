@@ -30,6 +30,7 @@ target_include_directories("HungaNut" PUBLIC
 
 target_link_libraries("HungaNut" PRIVATE
     ${LIBSDL_DIR}/libSDL2d.a
+    ${LIBSDL_DIR}/libSDL2_image.a
     ${CMAKE_DL_LIBS}
     Threads::Threads
 )
