@@ -9,6 +9,11 @@ add_library("HungaNut" STATIC
     "src/Engine.cpp"
     "src/Window.h"
     "src/Window.cpp"
+    "src/Input/InputManager.h"
+    "src/Input/InputManager.cpp"
+    "src/Input/KeyBinds.h"
+    "src/Input/KeyBoard.h"
+    "src/Input/Mouse.h"
     
     "src/Logging/color.h"
     "src/Logging/format.h"

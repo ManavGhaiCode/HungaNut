@@ -2,6 +2,7 @@
 #define _ENGINE_H_
 
 #include "Window.h"
+#include "Input/InputManager.h"
 
 namespace Hunga {
     class Engine {
@@ -18,6 +19,9 @@ namespace Hunga {
             // vars
             bool m_running = false;
             Window m_window;
+
+            // Managers
+            InputManager m_InputManager;
 
             // singletin stuff
             static Engine* m_Instance;

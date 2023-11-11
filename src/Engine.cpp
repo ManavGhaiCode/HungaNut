@@ -1,8 +1,10 @@
 #include "log.h"
 #include "Engine.h"
 #include "Defines.h"
+#include "Input/KeyBinds.h"
 
 #include <iostream>
+#include <thread>
 #include <string>
 
 #include <SDL2/SDL.h>
@@ -26,6 +28,11 @@ namespace Hunga {
 
         while (m_running) {
             m_window.PollEvents();
+            m_InputManager.Update();
+
+            if (m_InputManager.GetButton(MouseKeys::Left)) {
+                NUT_TRACE("left was pressed");
+            }
         }
         
         ShutDown();

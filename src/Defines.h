@@ -12,4 +12,6 @@
     #define NUT_PLATFORM_LINUX
 #endif
 
+#define KEYS_TO_I(X) X = X 
+
 #endif
