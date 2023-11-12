@@ -2,6 +2,9 @@
 #define _RENDERER_H_
 
 #include <cstdint>
+#include <vector>
+
+#include "Defines.h"
 #include "Renderer/Color.h"
 
 struct SDL_Renderer;
@@ -11,11 +14,15 @@ namespace Hunga {
             void Init();
             void Update();
 
+            SDL_Renderer* GetRenderer() { return m_Renderer; }
+
+            void PushSprite(Sprite* sprite);
+
         private:
             SDL_Renderer *m_Renderer;
             Color m_BGColor { 0 ,0 ,0 ,0 };
 
-            void Flush();
+            std::vector<Sprite*> m_Sprites;
     };
 }
 

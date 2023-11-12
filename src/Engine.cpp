@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include "Defines.h"
 #include "Input/KeyBinds.h"
+#include "API/Rendering.h"
 
 #include <iostream>
 #include <thread>
@@ -27,9 +28,12 @@ namespace Hunga {
             return;
         }
 
+        Sprite* s = LoadSprite("../test/fx/sprite.png");
+
         while (m_running) {
             m_window.PollEvents();
             m_InputManager.Update();
+            DrawSprite(s);
             m_Renderer.Update();
         }
         

@@ -16,6 +16,8 @@ add_library("HungaNut" STATIC
     "src/Input/Mouse.h"
     "src/Renderer/Renderer.h"
     "src/Renderer/Renderer.cpp"
+    "src/API/Rendering.h"
+    "src/API/Rendering.cpp"
     
     "src/Logging/color.h"
     "src/Logging/format.h"

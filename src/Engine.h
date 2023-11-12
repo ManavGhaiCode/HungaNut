@@ -12,7 +12,8 @@ namespace Hunga {
 
             void Run();
             inline void Quit() { m_running = false; };
-            inline SDL_Window* GetWidnow() { return m_window.GetWindow(); };
+            inline SDL_Window& GetWidnow() { return *m_window.GetWindow(); };
+            inline Renderer& GetRenderer() { return m_Renderer; };
 
         private:
             bool Init();
