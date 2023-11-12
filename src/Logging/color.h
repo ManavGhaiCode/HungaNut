@@ -1,5 +1,5 @@
-#ifndef _COLOR_H_
-#define _COLOR_H_
+#ifndef _LOG_COLOR_H_
+#define _LOG_COLOR_H_
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
