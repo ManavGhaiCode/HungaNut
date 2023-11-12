@@ -14,7 +14,4 @@
 
 #define NUT_BREAK std::exit(1);
 
-struct SDL_Texture;
-typedef SDL_Texture Sprite;
-
 #endif

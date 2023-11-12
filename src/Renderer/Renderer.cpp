@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include "Renderer/Renderer.h"
+#include "Renderer/Sprite.h"
 #include "Renderer/Color.h"
 #include "Engine.h"
 
@@ -18,22 +19,28 @@ namespace Hunga {
     }
 
     void Renderer::Update() {
-        SDL_Rect rect;
-        rect.x = 100;
-        rect.y = 100;
-        rect.w = 100;
-        rect.h = 100;
-
         SDL_RenderClear(m_Renderer);
 
-        for (Sprite* s : m_Sprites) {
-            SDL_RenderCopy(m_Renderer, s, nullptr, &rect);
+        for (Sprite s : m_Sprites) {
+            SDL_Rect rect;
+            rect.x = s.x;
+            rect.y = s.y;
+            rect.h = s.h;
+            rect.w = s.w;
+
+            SDL_RenderCopy(m_Renderer, s.texture, nullptr, &rect);
         }
 
         SDL_RenderPresent(m_Renderer);
+        m_Sprites.clear();
     }
 
-    void Renderer::PushSprite(Sprite* sprite) {
+    void Renderer::ShutDown() {
+        SDL_DestroyRenderer(m_Renderer);
+        m_Sprites.clear();
+    }
+
+    void Renderer::PushSprite(Sprite sprite) {
         m_Sprites.push_back(sprite);
     }
 }

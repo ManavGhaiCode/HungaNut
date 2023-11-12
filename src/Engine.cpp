@@ -28,12 +28,12 @@ namespace Hunga {
             return;
         }
 
-        Sprite* s = LoadSprite("../test/fx/sprite.png");
+        Sprite s = LoadSprite("../test/fx/sprite.png");
 
         while (m_running) {
             m_window.PollEvents();
             m_InputManager.Update();
-            DrawSprite(s);
+            DrawSprite(s, 350, 250);
             m_Renderer.Update();
         }
         
@@ -65,6 +65,7 @@ namespace Hunga {
 
     void Engine::ShutDown() {
         m_window.ShutDown();
+        m_Renderer.ShutDown();
 
         SDL_Quit();
         delete m_Instance;
