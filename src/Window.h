@@ -9,6 +9,8 @@ namespace Hunga {
             void ShutDown();
             void PollEvents();
 
+            SDL_Window* GetWindow() { return m_window; };
+
         private:
             SDL_Window *m_window;
     };

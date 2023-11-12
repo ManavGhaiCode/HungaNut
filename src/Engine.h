@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Input/InputManager.h"
+#include "Renderer/Renderer.h"
 
 namespace Hunga {
     class Engine {
@@ -11,6 +12,7 @@ namespace Hunga {
 
             void Run();
             inline void Quit() { m_running = false; };
+            inline SDL_Window* GetWidnow() { return m_window.GetWindow(); };
 
         private:
             bool Init();
@@ -18,6 +20,7 @@ namespace Hunga {
 
             // vars
             bool m_running = false;
+            Renderer m_Renderer;
             Window m_window;
 
             // Managers

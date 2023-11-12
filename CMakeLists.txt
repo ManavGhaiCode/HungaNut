@@ -14,6 +14,8 @@ add_library("HungaNut" STATIC
     "src/Input/KeyBinds.h"
     "src/Input/KeyBoard.h"
     "src/Input/Mouse.h"
+    "src/Renderer/Renderer.h"
+    "src/Renderer/Renderer.cpp"
     
     "src/Logging/color.h"
     "src/Logging/format.h"

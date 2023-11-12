@@ -30,10 +30,7 @@ namespace Hunga {
         while (m_running) {
             m_window.PollEvents();
             m_InputManager.Update();
-
-            if (m_InputManager.GetButton(MouseKeys::Left)) {
-                NUT_TRACE("left was pressed");
-            }
+            m_Renderer.Update();
         }
         
         ShutDown();
@@ -54,6 +51,7 @@ namespace Hunga {
         if (m_window.Init()) {
             ret = true;
             m_running = true;
+            m_Renderer.Init();
         }
 
         NUT_TRACE("Init Engine...");
