@@ -28,12 +28,14 @@ namespace Hunga {
             return;
         }
 
-        Sprite s = LoadSprite("../test/fx/sprite.png");
+        GameStart();
 
         while (m_running) {
             m_window.PollEvents();
             m_InputManager.Update();
-            DrawSprite(s, 350, 250);
+
+            GameUpdate();
+
             m_Renderer.Update();
         }
         

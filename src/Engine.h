@@ -31,6 +31,9 @@ namespace Hunga {
             static Engine* m_Instance;
             Engine() {};
     };
+
+    extern void GameStart();
+    extern void GameUpdate();
 };
 
 #endif
