@@ -8,4 +8,8 @@ void Hunga::GameStart() {
 
 void Hunga::GameUpdate() {
     Hunga::DrawSprite(sprite, 350, 250);
+
+    if (GetKey(Keys::X)) {
+        NUT_TRACE("Pressed Key X.");
+    }
 }

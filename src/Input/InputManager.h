@@ -15,7 +15,6 @@ namespace Hunga {
             bool GetButtonDown(int button);
             bool GetButtonUp(int button);
             bool GetButton(int button);
-
         private:
             KeyBoard m_KeyBoard;
             Mouse m_Mouse;

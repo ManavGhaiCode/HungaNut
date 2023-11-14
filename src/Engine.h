@@ -12,6 +12,7 @@ namespace Hunga {
 
             void Run();
             inline void Quit() { m_running = false; };
+            inline InputManager& GetInputManager() { return m_InputManager; };
             inline SDL_Window& GetWidnow() { return *m_window.GetWindow(); };
             inline Renderer& GetRenderer() { return m_Renderer; };
 
