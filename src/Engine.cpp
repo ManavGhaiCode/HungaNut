@@ -35,6 +35,7 @@ namespace Hunga {
             m_InputManager.Update();
 
             GameUpdate();
+            m_physics.Update();
 
             m_Renderer.Update();
         }
@@ -57,6 +58,7 @@ namespace Hunga {
         if (m_window.Init()) {
             ret = true;
             m_running = true;
+            m_physics.Init();
             m_Renderer.Init();
         }
 

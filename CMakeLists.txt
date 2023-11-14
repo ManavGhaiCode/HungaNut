@@ -17,6 +17,8 @@ add_library("HungaNut" STATIC
     "src/Input/Mouse.h"
     "src/Renderer/Renderer.h"
     "src/Renderer/Renderer.cpp"
+    "src/Physics/Physics.h"
+    "src/Physics/Physics.cpp"
     "src/API/Rendering.h"
     "src/API/Rendering.cpp"
     "src/API/Input.h"
