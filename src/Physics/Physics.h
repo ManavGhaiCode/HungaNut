@@ -12,6 +12,8 @@ namespace Hunga {
         private:
             b2Vec2* m_gravity = nullptr;
             b2World* m_World = nullptr;
+
+            b2Body* m_body;
     };
 }
 
