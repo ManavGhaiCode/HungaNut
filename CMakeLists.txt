@@ -19,6 +19,7 @@ add_library("HungaNut" STATIC
     "src/Renderer/Renderer.cpp"
     "src/API/Rendering.h"
     "src/API/Rendering.cpp"
+    "src/API/Input.h"
     
     "src/Logging/color.h"
     "src/Logging/format.h"
