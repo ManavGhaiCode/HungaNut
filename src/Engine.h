@@ -4,7 +4,6 @@
 #include "Window.h"
 #include "Input/InputManager.h"
 #include "Renderer/Renderer.h"
-#include "Physics/Physics.h"
 
 namespace Hunga {
     class Engine {
@@ -24,7 +23,6 @@ namespace Hunga {
             // vars
             bool m_running = false;
             Renderer m_Renderer;
-            Physics m_physics;
             Window m_window;
 
             // Managers
