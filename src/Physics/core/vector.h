@@ -49,23 +49,23 @@ namespace Physics {
         }
 
         void operator+=(const Vector2& rhs) {
-            x = x + rhs.x;
-            y = y - rhs.y;
+            x += rhs.x;
+            y += rhs.y;
         }
 
         void operator-=(const Vector2& rhs) {
-            x = x - rhs.x;
-            y = y - rhs.y;
+            x -= rhs.x;
+            y -= rhs.y;
         }
 
         void operator*=(const Vector2& rhs) {
-            x = x * rhs.x;
-            y = y * rhs.y;
+            x *= rhs.x;
+            y *= rhs.y;
         }
 
         void operator/=(const Vector2& rhs) {
-            x = x / rhs.x;
-            y = y / rhs.y;
+            x /= rhs.x;
+            y /= rhs.y;
         }
     };
 }
