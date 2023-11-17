@@ -3,11 +3,11 @@
 
 namespace Physics {
     struct Vector2 {
-        int x;
-        int y;
+        double x;
+        double y;
 
         Vector2() {};
-        Vector2(int _x, int _y) {
+        Vector2(double _x, double _y) {
             x = _x;
             y = _y;
         }
