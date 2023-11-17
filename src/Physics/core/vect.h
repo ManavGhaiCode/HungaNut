@@ -20,6 +20,53 @@ namespace Physics {
 
             return vect;
         }
+
+        Vector2 operator-(const Vector2& rhs) {
+            Vector2 vect;
+
+            vect.x = x - rhs.x;
+            vect.y = y - rhs.y;
+
+            return vect;
+        }
+
+        Vector2 operator*(const Vector2& rhs) {
+            Vector2 vect;
+
+            vect.x = x * rhs.x;
+            vect.y = y * rhs.y;
+
+            return vect;
+        }
+
+        Vector2 operator/(const Vector2& rhs) {
+            Vector2 vect;
+
+            vect.x = x / rhs.x;
+            vect.y = y / rhs.y;
+
+            return vect;
+        }
+
+        void operator+=(const Vector2& rhs) {
+            x = x + rhs.x;
+            y = y - rhs.y;
+        }
+
+        void operator-=(const Vector2& rhs) {
+            x = x - rhs.x;
+            y = y - rhs.y;
+        }
+
+        void operator*=(const Vector2& rhs) {
+            x = x * rhs.x;
+            y = y * rhs.y;
+        }
+
+        void operator/=(const Vector2& rhs) {
+            x = x / rhs.x;
+            y = y / rhs.y;
+        }
     };
 }
 
