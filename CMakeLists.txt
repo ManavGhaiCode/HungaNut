@@ -3,6 +3,7 @@ project("HungaNut")
 
 find_package(Threads REQUIRED)
 set(LIBSDL_DIR ${CMAKE_SOURCE_DIR}/ThirdParty/SDL2/lib)
+set(LIBCHIP_DIR ${CMAKE_SOURCE_DIR}/ThirdParty/chipmunk/lib)
 
 add_library("HungaNut" STATIC
     "src/Engine.h"
@@ -31,11 +32,13 @@ add_library("HungaNut" STATIC
 target_include_directories("HungaNut" PUBLIC
     "src"
     "ThirdParty/SDL2/include"
+    "ThirdParty/chipmunk/include"
 )
 
 target_link_libraries("HungaNut" PRIVATE
     ${LIBSDL_DIR}/libSDL2d.a
     ${LIBSDL_DIR}/libSDL2_image.a
+    ${LIBCHIP_DIR}/libchipmunk.a
     
     ${CMAKE_DL_LIBS}
     Threads::Threads
