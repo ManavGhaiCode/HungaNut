@@ -2,7 +2,7 @@
 #define _EVENTMANAGER_H_
 
 #include "Events/Event.h"
-#include <vector>
+#include <map>
 
 namespace Hunga {
     class EventManager {
@@ -12,7 +12,7 @@ namespace Hunga {
             void addEvent(Event event);
 
         private:
-            std::vector<Event> m_Events;
+            std::unordered_map<std::string, Event> m_Events;
     };
 }
 
