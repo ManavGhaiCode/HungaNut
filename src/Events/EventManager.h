@@ -1,0 +1,19 @@
+#ifndef _EVENTMANAGER_H_
+#define _EVENTMANAGER_H_
+
+#include "Events/Event.h"
+#include <vector>
+
+namespace Hunga {
+    class EventManager {
+        public:
+            void Subscribe(std::string EventName, std::function<void(Hunga::Event&)> function);
+            void Brodcast(std::string name);
+            void addEvent(Event event);
+
+        private:
+            std::vector<Event> m_Events;
+    };
+}
+
+#endif

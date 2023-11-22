@@ -3,6 +3,7 @@
 
 #include "Window.h"
 #include "Input/InputManager.h"
+#include "Events/EventManager.h"
 #include "Renderer/Renderer.h"
 
 namespace Hunga {
@@ -13,6 +14,7 @@ namespace Hunga {
             void Run();
             inline void Quit() { m_running = false; };
             inline InputManager& GetInputManager() { return m_InputManager; };
+            inline EventManager& GetEventManager() { return m_EventManager; };
             inline SDL_Window& GetWidnow() { return *m_window.GetWindow(); };
             inline Renderer& GetRenderer() { return m_Renderer; };
 
@@ -27,6 +29,7 @@ namespace Hunga {
 
             // Managers
             InputManager m_InputManager;
+            EventManager m_EventManager;
 
             // singletin stuff
             static Engine* m_Instance;
