@@ -12,7 +12,7 @@ namespace Hunga {
             void addEvent(Event event);
 
         private:
-            std::unordered_map<std::string, Event> m_Events;
+            std::map<std::string, Event> m_Events;
     };
 }
 
