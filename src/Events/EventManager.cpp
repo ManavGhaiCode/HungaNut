@@ -4,7 +4,7 @@
 #include <string>
 
 namespace Hunga {
-    void EventManager::Brodcast(std::string EventName) {
+    void EventManager::Brodcast(const std::string& EventName) {
         Event& event = m_Events[EventName];
 
         if ( &event == nullptr ) {
@@ -17,7 +17,7 @@ namespace Hunga {
         }
     }
 
-    void EventManager::Subscribe(std::string EventName, std::function<void(Hunga::Event&)> function) {
+    void EventManager::Subscribe(const std::string& EventName, std::function<void(Hunga::Event&)> function) {
         Event& event = m_Events[EventName];
 
         if ( &event == nullptr ) {
@@ -28,7 +28,7 @@ namespace Hunga {
         event.subscribes.push_back(function);
     }
 
-    void EventManager::addEvent(Event event) {
+    void EventManager::addEvent(const Event& event) {
         m_Events[event.name] = event;
     }
 }

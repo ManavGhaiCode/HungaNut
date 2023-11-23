@@ -7,9 +7,9 @@
 namespace Hunga {
     class EventManager {
         public:
-            void Subscribe(std::string EventName, std::function<void(Hunga::Event&)> function);
-            void Brodcast(std::string name);
-            void addEvent(Event event);
+            void Subscribe(const std::string& EventName, std::function<void(Hunga::Event&)> function);
+            void Brodcast(const std::string& name);
+            void addEvent(const Event& event);
 
         private:
             std::map<std::string, Event> m_Events;
