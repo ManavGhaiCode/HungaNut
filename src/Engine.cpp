@@ -45,7 +45,7 @@ namespace Hunga {
     bool Engine::Init() {
         bool ret = false;
 
-        if (SDL_Init(SDL_INIT_EVERYTHING)) {
+        if (SDL_Init(SDL_INIT_VIDEO)) {
             NUT_ERROR("Couldn't Init SDL: ", SDL_GetError());
         }
 
