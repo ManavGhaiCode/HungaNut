@@ -14,7 +14,7 @@ void format_helper(std::string& str, const T& value) {
 }
 
 template<typename... Targs>
-std::string format(std::string str, Targs...args) {
+std::string format(const std::string& str, Targs...args) {
     (format_helper(str, args),...);
     return str;
 };
