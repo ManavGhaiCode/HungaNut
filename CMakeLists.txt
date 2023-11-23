@@ -4,6 +4,7 @@ project("HungaNut")
 find_package(Threads REQUIRED)
 set(LIBSDL_DIR ${CMAKE_SOURCE_DIR}/ThirdParty/SDL2/lib)
 set(LIBBOX2D ${CMAKE_SOURCE_DIR}/ThirdParty/Box2d/lib)
+set(SDKVULKAN ${CMAKE_SOURCE_DIR/ThirdParty/VulkanSDK/lib})
 
 add_library("HungaNut" STATIC
     "src/Engine.h"
@@ -37,15 +38,21 @@ target_include_directories("HungaNut" PUBLIC
     "src"
     "ThirdParty/SDL2/include"
     "ThirdParty/Box2d/include"
+    "ThirdParty/VulkanSDK/include"
 )
 
 target_link_libraries("HungaNut" PRIVATE
     ${LIBSDL_DIR}/libSDL2d.a
     ${LIBSDL_DIR}/libSDL2_image.a
     ${LIBBOX2D}/libbox2d.a
+    ${SDKVULKAN}/lib
     
     ${CMAKE_DL_LIBS}
     Threads::Threads
+)
+
+target_link_directories("HungaNut" PRIVATE
+    ${SDKVULKAN}
 )
 
 project("Test")
