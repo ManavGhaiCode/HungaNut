@@ -7,7 +7,7 @@
 
 namespace Hunga {
     bool Window::Init() {
-        m_window = SDL_CreateWindow("Window!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+        m_window = SDL_CreateWindow("Window!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_VULKAN);
 
         if (m_window == nullptr) {
             NUT_ERROR("Unable to Init window", SDL_GetError());
