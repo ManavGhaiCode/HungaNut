@@ -24,6 +24,8 @@ add_library("HungaNut" STATIC
     "src/Events/EventManager.cpp"
     "src/Renderer/Renderer.h"
     "src/Renderer/Renderer.cpp"
+    "src/Renderer/vkInit.h"
+    "src/Renderer/vkInit.cpp"
     "src/API/Rendering.h"
     "src/API/Rendering.cpp"
     "src/API/Input.h"

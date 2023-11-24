@@ -39,7 +39,7 @@ namespace Hunga {
     }
 
     void Renderer::ShutDown() {
-        // SDL_DestroyRenderer(m_Renderer);
+        m_Instance.destroy();
         // m_Sprites.clear();
     }
 
