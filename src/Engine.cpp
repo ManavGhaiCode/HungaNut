@@ -7,6 +7,7 @@
 #include <iostream>
 #include <thread>
 #include <string>
+#include <chrono>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -31,12 +32,20 @@ namespace Hunga {
         GameStart();
 
         while (m_running) {
+            auto start = std::chrono::high_resolution_clock::now();
+
             m_window.PollEvents();
             m_InputManager.Update();
 
             GameUpdate();
 
             m_Renderer.Update();
+
+            auto end = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double> deltaTime = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
+
+            NUT_TRACE(std::to_string(deltaTime.count()));
+            NUT_TRACE(std::to_string(1 / deltaTime.count()));
         }
         
         ShutDown();
