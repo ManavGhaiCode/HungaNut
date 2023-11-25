@@ -13,7 +13,7 @@
 #include "log.h"
 
 namespace vkInit {
-    bool supported( std::vector<const char*> extensions, std::vector<const char*> layers);
+    bool supported( std::vector<const char*>& extensions, std::vector<const char*>& layers);
     vk::Instance Init(std::string appName);
 };
 

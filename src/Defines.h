@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define DEBUG
-#define RELEASE
+// #define RELEASE
 
 #ifdef __linux__
     #define NUT_PLATFORM_LINUX
