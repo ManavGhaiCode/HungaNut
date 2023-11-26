@@ -6,10 +6,13 @@ set(LIBSDL_DIR ${CMAKE_SOURCE_DIR}/ThirdParty/SDL2/lib)
 set(LIBBOX2D ${CMAKE_SOURCE_DIR}/ThirdParty/Box2d/lib)
 
 add_library("HungaNut" STATIC
+    # Core Engine files
     "src/Engine.h"
     "src/Engine.cpp"
     "src/Window.h"
     "src/Window.cpp"
+
+    # Input & Events
     "src/Input/InputManager.h"
     "src/Input/InputManager.cpp"
     "src/Input/KeyBinds.h"
@@ -18,17 +21,29 @@ add_library("HungaNut" STATIC
     "src/Events/Event.h"
     "src/Events/EventManager.h"
     "src/Events/EventManager.cpp"
+
+    # Rednering
     "src/Renderer/Renderer.h"
     "src/Renderer/Renderer.cpp"
+
+    # ECS
+    "src/ECS/GameObject.h"
+    "src/ECS/GameObject.cpp"
+    "src/ECS/Script.h"
+    
+    # API
     "src/API/Rendering.h"
     "src/API/Rendering.cpp"
     "src/API/Input.h"
     "src/API/Events.h"
     
+    # Logging
     "src/Logging/color.h"
     "src/Logging/format.h"
     "src/Logging/NutLogger.h"
     "src/log.h"
+
+    # Main Include files
     "src/main.h"
     "src/HungaNut.h"
 )
