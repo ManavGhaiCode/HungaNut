@@ -1,6 +1,13 @@
 #include "ECS/GameObject.h"
 
 namespace Hunga {
+    void GameObject::AddScript(Script& script) {
+        uint32_t uuid = UUID::uuid_Gen();
+
+        script._uuid = uuid;
+        m_Scripts[uuid] = &script;
+    }
+
     void GameObject::Awake() {
         for (auto const& script : m_Scripts) {
             script.second->Awake();

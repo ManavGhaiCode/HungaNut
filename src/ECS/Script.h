@@ -10,6 +10,8 @@ namespace Hunga {
     class Script {
         public:
             uint32_t _uuid;
+            Script() {};
+            ~Script() {};
 
         private:
             virtual void Awake() {};

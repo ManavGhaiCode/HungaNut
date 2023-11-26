@@ -1,6 +1,8 @@
 #ifndef _COPONENT_H_
 #define _COPONENT_H_
 
+#include "ECS/ECS.h"
+
 #include "ECS/Script.h"
 #include "uuid.h"
 
@@ -13,6 +15,8 @@ namespace Hunga {
             uint32_t _uuid;
             GameObject() {};
             ~GameObject();
+
+            void AddScript(Script& Script);
             
         private:
             std::map<uint32_t, Script*> m_Scripts;
@@ -24,6 +28,8 @@ namespace Hunga {
             void FixedUpdate();
 
             void Serialze();
+
+        friend class ECS;
     };
 }
 
