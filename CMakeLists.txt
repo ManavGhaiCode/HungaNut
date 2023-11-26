@@ -29,6 +29,8 @@ add_library("HungaNut" STATIC
     # ECS
     "src/ECS/GameObject.h"
     "src/ECS/GameObject.cpp"
+    "src/ECS/ECS.h"
+    "src/ECS/ECS.cpp"
     "src/ECS/Script.h"
     
     # API
