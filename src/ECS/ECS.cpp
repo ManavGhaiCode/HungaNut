@@ -7,4 +7,8 @@ namespace Hunga {
         gameObject._uuid = uuid;
         m_Objects[uuid] = gameObject;
     }
+
+    void ECS::DeleteObject(uint32_t uuid) {
+        m_Objects.erase(uuid);
+    }
 }
