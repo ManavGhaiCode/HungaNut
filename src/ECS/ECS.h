@@ -1,20 +1,23 @@
 #ifndef _ECS_H_
 #define _ECS_H_
 
-#include <entt/entt.hpp>
+#include "ECS/GameObject.h"
+
+#include <map>
+#include <vector>
+#include <cstdint>
 
 namespace Hunga {
     class ECS {
         public:
-            void AddObject();
-            void DeleteObject();
+            void AddObject(GameObject& gameObject);
+            void DeleteObject(uint32_t uuid);
 
-            void GetObject_uuid();
-            // void SetObejct_uu
+            std::map<uint32_t, GameObject>& GetObjects();
+            GameObject& GetObject_uuid(uint32_t uuid);
 
         private:
-            entt::entity;
-            entt::registry m_Registry;
+            std::map<uint32_t, GameObject> m_Objects;
     };
 }
 
