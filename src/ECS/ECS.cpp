@@ -1,4 +1,5 @@
 #include "ECS/ECS.h"
+#include "log.h"
 
 namespace Hunga {
     void ECS::AddObject(GameObject& gameObject) {
@@ -9,6 +10,10 @@ namespace Hunga {
     }
 
     void ECS::DeleteObject(uint32_t uuid) {
+        if (m_Objects.count(uuid) == 0) {
+            NUT_ERROR("unable to find GameObject with uuid: {}", uuid);
+        }
+
         m_Objects.erase(uuid);
     }
 
@@ -17,6 +22,11 @@ namespace Hunga {
     }
 
     GameObject& ECS::GetObject_uuid(uint32_t uuid) {
+        if (m_Objects.count(uuid) == 0) {
+            NUT_ERROR("unable to find GameObject with uuid: {}", uuid);
+            return;
+        }
+
         return m_Objects[uuid];
     }
 }
