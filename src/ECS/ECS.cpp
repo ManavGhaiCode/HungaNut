@@ -29,8 +29,7 @@ namespace Hunga {
         if (m_Objects.count(uuid) == 0) {
             NUT_ERROR("Unable to find gameObject with uuid {}", uuid);
 
-            GameObject object = GameObject ();
-            return object;
+            return emptyObject;
         }
 
         return m_Objects[uuid];
