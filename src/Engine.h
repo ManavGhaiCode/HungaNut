@@ -2,6 +2,7 @@
 #define _ENGINE_H_
 
 #include "Window.h"
+#include "Scenes.h"
 #include "Input/InputManager.h"
 #include "Events/EventManager.h"
 #include "Renderer/Renderer.h"
@@ -26,6 +27,7 @@ namespace Hunga {
             bool m_running = false;
             Renderer m_Renderer;
             Window m_window;
+            Scene m_Scene;
 
             // Managers
             InputManager m_InputManager;

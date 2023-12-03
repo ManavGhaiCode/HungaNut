@@ -86,4 +86,6 @@ namespace Hunga {
             gameObject.second.Serialize();
         }
     }
+
+    GameObject ECS::emptyObject = GameObject ();
 }

@@ -31,8 +31,6 @@ namespace Hunga {
 
             std::map<uint32_t, GameObject> m_Objects;
     };
-
-    GameObject ECS::emptyObject = GameObject ();
 }
 
 

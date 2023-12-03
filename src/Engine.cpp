@@ -67,6 +67,7 @@ namespace Hunga {
             ret = true;
             m_running = true;
             m_Renderer.Init();
+            m_Scene.Init();
         }
 
         NUT_TRACE("Init Engine...");
@@ -77,6 +78,7 @@ namespace Hunga {
     void Engine::ShutDown() {
         m_window.ShutDown();
         m_Renderer.ShutDown();
+        m_Scene.ShutDown();
 
         SDL_Quit();
         delete m_Instance;
