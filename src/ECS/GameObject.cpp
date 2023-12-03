@@ -17,6 +17,8 @@ namespace Hunga {
         uint32_t uuid = UUID::uuid_Gen();
         script._uuid = uuid;
 
+        script.gameObject = this;
+
         m_Scripts[uuid] = &script;
     }
 
