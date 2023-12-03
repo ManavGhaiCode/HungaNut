@@ -4,6 +4,12 @@
 #include "log.h"
 
 namespace Hunga {
+    void ECS::ShutDown() {
+        for (auto script : m_Objects) {
+            script.second.ShutDown();
+        }
+    }
+
     void ECS::AddObject(GameObject& gameObject) {
         uint32_t uuid = UUID::uuid_Gen();
         gameObject._uuid = uuid;

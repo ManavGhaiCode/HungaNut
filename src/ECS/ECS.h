@@ -8,7 +8,9 @@
 
 namespace Hunga {
     class ECS {
-        public: 
+        public:
+            void ShutDown();
+
             void AddObject(GameObject& gameObject);
             void AddObject_withUuid(GameObject& gameObject, uint32_t uuid);
             void DeleteObject(uint32_t uuid);
