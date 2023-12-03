@@ -3,20 +3,29 @@
 
 #include "ECS/GameObject.h"
 
-#include <map>
-#include <vector>
 #include <cstdint>
+#include <map>
 
 namespace Hunga {
     class ECS {
-        public:
+        public: 
             void AddObject(GameObject& gameObject);
+            void AddObject_withUuid(GameObject& gameObject, uint32_t uuid);
             void DeleteObject(uint32_t uuid);
 
-            std::map<uint32_t, GameObject>& GetObjects();
-            GameObject& GetObject_uuid(uint32_t uuid);
+
+            void GetObject_uuid(uint32_t uuid);
+            void SetObjectUuid(uint32_t uuid, uint32_t new_uuid);
 
         private:
+            void Awake();
+            void Start();
+            void Update();
+            void LateUpdate();
+            void FixedUpdate();
+
+            void Serialize();
+
             std::map<uint32_t, GameObject> m_Objects;
     };
 }

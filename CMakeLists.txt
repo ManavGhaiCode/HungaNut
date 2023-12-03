@@ -26,6 +26,13 @@ add_library("HungaNut" STATIC
     "src/Renderer/Renderer.h"
     "src/Renderer/Renderer.cpp"
 
+    #ECS
+    "src/ECS/Script.h"
+    "src/ECS/GameObject.h"
+    "src/ECS/GameObject.cpp"
+    "src/ECS/ECS.h"
+    "src/ECS/ECS.cpp"
+
     # API
     "src/API/Rendering.h"
     "src/API/Rendering.cpp"

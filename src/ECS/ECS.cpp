@@ -1,32 +1,61 @@
 #include "ECS/ECS.h"
-#include "log.h"
+#include "uuid.h"
 
 namespace Hunga {
     void ECS::AddObject(GameObject& gameObject) {
         uint32_t uuid = UUID::uuid_Gen();
-
         gameObject._uuid = uuid;
+
+        m_Objects[uuid] = gameObject;
+    }
+
+    void ECS::AddObject_withUuid(GameObject& gameObject, uint32_t uuid) {
         m_Objects[uuid] = gameObject;
     }
 
     void ECS::DeleteObject(uint32_t uuid) {
-        if (m_Objects.count(uuid) == 0) {
-            NUT_ERROR("unable to find GameObject with uuid: {}", uuid);
-        }
-
+        m_Objects[uuid].ShutDown();
         m_Objects.erase(uuid);
     }
 
-    std::map<uint32_t, GameObject>& ECS::GetObjects() {
-        return m_Objects;
+    void ECS::SetObjectUuid(uint32_t uuid, uint32_t new_uuid) {
+        m_Objects[new_uuid] = m_Objects[uuid];
+        m_Objects.erase(uuid);
     }
 
-    GameObject& ECS::GetObject_uuid(uint32_t uuid) {
-        if (m_Objects.count(uuid) == 0) {
-            NUT_ERROR("unable to find GameObject with uuid: {}", uuid);
-            return;
+    void ECS::Awake() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.Awake();
         }
+    }
 
-        return m_Objects[uuid];
+    void ECS::Start() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.Start();
+        }
+    }
+
+    void ECS::Update() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.Update();
+        }
+    }
+
+    void ECS::LateUpdate() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.LateUpdate();
+        }
+    }
+
+    void ECS::FixedUpdate() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.FixedUpdate();
+        }
+    }
+
+    void ECS::Serialize() {
+        for (auto gameObject : m_Objects) {
+            gameObject.second.Serialize();
+        }
     }
 }
