@@ -14,7 +14,7 @@ namespace Hunga {
             void DeleteObject(uint32_t uuid);
 
 
-            void GetObject_uuid(uint32_t uuid);
+            GameObject& GetObject_uuid(uint32_t uuid);
             void SetObjectUuid(uint32_t uuid, uint32_t new_uuid);
 
         private:
