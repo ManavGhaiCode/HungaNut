@@ -40,6 +40,9 @@ namespace Hunga {
 
     extern void GameStart();
     extern void GameUpdate();
+    extern void GameStop();
+
+    extern void MakeScene(Scene& scene);
 };
 
 #endif

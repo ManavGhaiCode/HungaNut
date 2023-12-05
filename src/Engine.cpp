@@ -29,6 +29,7 @@ namespace Hunga {
             return;
         }
 
+        MakeScene(m_Scene);
         GameStart();
 
         while (m_running) {
@@ -48,6 +49,7 @@ namespace Hunga {
             NUT_TRACE(std::to_string(1 / deltaTime.count()));
         }
         
+        GameStop();
         ShutDown();
     };
 

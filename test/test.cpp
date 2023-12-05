@@ -13,3 +13,9 @@ void Hunga::GameUpdate() {
         NUT_TRACE("Pressed Key X.");
     }
 }
+
+void Hunga::GameStop() {
+    NUT_TRACE("Game End.");
+}
+
+void Hunga::MakeScene(Hunga::Scene& scene) {}
