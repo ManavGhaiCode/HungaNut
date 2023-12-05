@@ -1,7 +1,7 @@
 #include "ECS/GameObject.h"
-#include "uuid.h"
-
 #include "log.h"
+
+#include <stdlib.h>
 
 namespace Hunga {
     void GameObject::ShutDown() {
@@ -14,7 +14,7 @@ namespace Hunga {
     }
 
     void GameObject::AddScript(Script& script) {
-        uint32_t uuid = UUID::uuid_Gen();
+        uint32_t uuid = rand();
         script._uuid = uuid;
 
         script.gameObject = this;

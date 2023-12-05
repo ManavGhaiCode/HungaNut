@@ -1,6 +1,4 @@
 #include "ECS/ECS.h"
-#include "uuid.h"
-
 #include "log.h"
 
 namespace Hunga {
@@ -11,7 +9,7 @@ namespace Hunga {
     }
 
     void ECS::AddObject(GameObject& gameObject) {
-        uint32_t uuid = UUID::uuid_Gen();
+        uint32_t uuid = rand();
         gameObject._uuid = uuid;
 
         m_Objects[uuid] = gameObject;
