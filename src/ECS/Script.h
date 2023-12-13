@@ -2,11 +2,13 @@
 #define _SCRIPT_H_
 
 #include <cstdint>
+#include <string>
 
 namespace Hunga {
     class Script {
         public:
-            uint32_t _uuid;
+            std::string __signature = "Base_Script";
+
             Script() {};
             ~Script() {};
 
@@ -19,8 +21,20 @@ namespace Hunga {
             virtual void FixedUpdate() {};
 
             virtual void OnDestroy() {};
+    };
 
-        friend class GameObject;
+    struct VariableScript {
+        void* script = nullptr;
+        std::string TypeName = "";
+
+        VariableScript() = default;
+
+        template <typename T>
+        VariableScript(const T& other)
+            : TypeName(NUT_TYPEOF(T))
+        {
+            *( (T*)script ) = &other;
+        }
     };
 }
 

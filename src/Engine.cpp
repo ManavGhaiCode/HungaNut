@@ -44,8 +44,8 @@ namespace Hunga {
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> deltaTime = std::chrono::duration_cast<std::chrono::duration<double>>(end - start);
 
-            NUT_TRACE(std::to_string(deltaTime.count()));
-            NUT_TRACE(std::to_string(1 / deltaTime.count()));
+            // NUT_TRACE(std::to_string(deltaTime.count()));
+            // NUT_TRACE(std::to_string(1 / deltaTime.count()));
         }
         
         ShutDown();

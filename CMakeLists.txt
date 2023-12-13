@@ -30,8 +30,8 @@ add_library("HungaNut" STATIC
     "src/ECS/Script.h"
     "src/ECS/GameObject.h"
     "src/ECS/GameObject.cpp"
-    "src/ECS/ECS.h"
-    "src/ECS/ECS.cpp"
+    "src/ECS/Registry.h"
+    "src/ECS/Registry.cpp"
 
     # API
     "src/API/Rendering.h"
