@@ -73,4 +73,19 @@ namespace Hunga {
 
         return ret;
     }
+
+    template <typename T>
+    std::vector<T*> GetScript() {
+        std::vector<T*> ret;
+
+        for (VariableScript& script : m_Objects[_HungaEntity entity]) {
+            if (script.TypeName == NUT_TYPEOF(T)) {
+                ret.push_back(&script);
+            } else if (dynamic_cast<T>(script.data())) {
+                ret.push_back(&script);
+            }
+        }
+
+        return ret;
+    }
 }
