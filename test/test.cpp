@@ -13,3 +13,8 @@ void Hunga::GameUpdate() {
         NUT_TRACE("Pressed Key X.");
     }
 }
+
+void Hunga::GameEnd() {};
+void Hunga::CreateScene(Hunga::Scene& scene) {
+    _HungaEntity object = scene.CreatObject();
+};

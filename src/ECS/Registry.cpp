@@ -69,8 +69,6 @@ namespace Hunga {
             if (dynamic_cast<T>(script.data())) {
                 ret.push_back(key);
             }
-
-            typeid().name()
         }
 
         return ret;

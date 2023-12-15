@@ -1,6 +1,7 @@
 #ifndef _ENGINE_H_
 #define _ENGINE_H_
 
+#include "Scene.h"
 #include "Window.h"
 #include "Input/InputManager.h"
 #include "Events/EventManager.h"
@@ -26,6 +27,7 @@ namespace Hunga {
             bool m_running = false;
             Renderer m_Renderer;
             Window m_window;
+            Scene m_Scene;
 
             // Managers
             InputManager m_InputManager;
@@ -36,6 +38,9 @@ namespace Hunga {
             Engine() {};
     };
 
+    extern void CreateScene(Scene& scene);
+
+    extern void GameEnd();
     extern void GameStart();
     extern void GameUpdate();
 };

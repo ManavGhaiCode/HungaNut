@@ -11,6 +11,8 @@ add_library("HungaNut" STATIC
     "src/Engine.cpp"
     "src/Window.h"
     "src/Window.cpp"
+    "src/Scene.h"
+    "src/Scene.cpp"
 
     # Input & Events
     "src/Input/InputManager.h"
