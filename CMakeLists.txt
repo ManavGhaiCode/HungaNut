@@ -57,6 +57,7 @@ target_include_directories("HungaNut" PUBLIC
     "ThirdParty/SDL2/include"
     "ThridParty/entt/include"
     "ThirdParty/Box2d/include"
+    "ThridParty/glm/include"
 )
 
 target_link_libraries("HungaNut" PRIVATE
