@@ -1,7 +1,9 @@
 #include "Scene.h"
+#include "ECS/GameObject.h"
 
 namespace Hunga {
-    _HungaEntity Scene::CreatObject() {
-        return m_Registry.CreatObject();
+    GameObject Scene::CreatObject() {
+        GameObject gameObject = m_Registry.CreatObject();
+        return gameObject;
     }
 }

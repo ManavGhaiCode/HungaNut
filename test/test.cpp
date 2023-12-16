@@ -16,5 +16,5 @@ void Hunga::GameUpdate() {
 
 void Hunga::GameEnd() {};
 void Hunga::CreateScene(Hunga::Scene& scene) {
-    _HungaEntity object = scene.CreatObject();
+    Hunga::GameObject object = scene.CreatObject();
 };

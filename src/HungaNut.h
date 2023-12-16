@@ -6,5 +6,6 @@
 #include "API/Rendering.h"
 #include "API/Events.h"
 #include "API/Input.h"
+#include "ECS/GameObject.h"
 
 #endif

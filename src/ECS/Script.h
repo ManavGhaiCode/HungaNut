@@ -7,8 +7,6 @@
 namespace Hunga {
     class Script {
         public:
-            std::string __signature = "Base_Script";
-
             Script() {};
             ~Script() {};
 

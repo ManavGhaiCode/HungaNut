@@ -4,9 +4,10 @@
 #include "ECS/Registry.h"
 
 namespace Hunga {
+    class GameObject;
     class Scene {
         public:
-            _HungaEntity CreatObject();
+            GameObject CreatObject();
             inline Registry& Reg() { return m_Registry; };
 
         private:
