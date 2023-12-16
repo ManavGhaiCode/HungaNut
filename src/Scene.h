@@ -10,8 +10,9 @@ namespace Hunga {
             inline Registry& Reg() { return m_Registry; };
 
         private:
-
             Registry m_Registry;
+            
+            friend class GameObject;
     };
 }
 

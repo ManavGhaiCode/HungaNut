@@ -27,7 +27,13 @@ namespace Hunga {
             void RemoveScript(_HungaEntity entity);
 
             template <typename T>
-            T* GetSctipt(_HungaEntity entity);
+            T& GetSctipt(_HungaEntity entity);
+
+            template <typename T>
+            std::vector<T&> GetSctipts(_HungaEntity entity);
+
+            template <typename T>
+            bool HasScript(_HungaEntity entity);
 
             template <typename T>
             std::vector<_HungaEntity> View();

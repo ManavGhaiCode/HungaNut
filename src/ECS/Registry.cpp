@@ -75,17 +75,41 @@ namespace Hunga {
     }
 
     template <typename T>
-    std::vector<T*> GetScript() {
-        std::vector<T*> ret;
+    T& Registry::GetSctipt(_HungaEntity entity) {
+        for (VariableScript& script : m_Objects[entity]) {
+            if (script.TypeName == NUT_TYPEOF(T)) {
+                return script;
+            } else if (dynamic_cast<T>(script.script)) {
+                return script;
+            }
+        }
+    }
 
-        for (VariableScript& script : m_Objects[_HungaEntity entity]) {
+    template <typename T>
+    std::vector<T&> Registry::GetSctipts(_HungaEntity entity) {
+        std::vector<T&> ret;
+
+        for (VariableScript& script : m_Objects[entity]) {
             if (script.TypeName == NUT_TYPEOF(T)) {
                 ret.push_back(&script);
-            } else if (dynamic_cast<T>(script.data())) {
+            } else if (dynamic_cast<T>(script.script)) {
                 ret.push_back(&script);
             }
         }
 
         return ret;
+    }
+
+    template <typename T>
+    bool Registry::HasScript(_HungaEntity entity) {
+        for (VariableScript& script : m_Objects[entity]) {
+            if (script.TypeName == NUT_TYPEOF(T)) {
+                return true;
+            } else if (dynamic_cast<T>(script.script)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
